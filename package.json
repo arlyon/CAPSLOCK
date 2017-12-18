@@ -1,0 +1,8 @@
+{
+  "name": "CAPSLOCK",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "stylus": "^0.54.5"
+  }
+}
