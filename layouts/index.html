@@ -1,10 +1,23 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header><a {{ if .IsHome}}class="active"{{end}} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></header>
+<nav>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>
+    {{ end }}
+</nav>
 <main>
     {{with .Content}}
     <section id="blurb">{{.}}</section>
     {{end}}
-    <section id="list">
-    {{ range .Paginator.Pages }}
+    {{ range first 10 .Data.Pages }}
     <article class="summary">
         <header>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -25,7 +38,6 @@
         </main>
     </article>
     {{ end }}
-    </section>
-    {{ partial "pagination.html" . }}
 </main>
-{{ end }}
+</body>
+</html>

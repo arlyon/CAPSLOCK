@@ -1,9 +1,10 @@
 {{ define "title" }}
-    {{ .Title }} – {{ .Site.Title }}
+{{ .Title }} – {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
 <main>
+    <script src="//gist.github.com/{{.Params.User}}/{{.Params.Gist}}.js"></script>
     <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
     {{ .Content }}
 </main>
