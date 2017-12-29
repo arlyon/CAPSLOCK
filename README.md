@@ -2,7 +2,7 @@
 
 CAPSLOCK is a simple hugo theme for blog-like websites. It allows for good flexibility without
 having to jump behind and edit the theme directly, and supports a few extra archetypes out of 
-the box such as gists and projects.
+the box such as gists and projects. To see an example site, visit https://github.com/arlyon/arlyon.co
 
 ![Example Picture](image.png)
 
