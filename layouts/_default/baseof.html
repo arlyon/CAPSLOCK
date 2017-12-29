@@ -6,15 +6,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/custom.css" />
+
+    {{ if gt (len .Site.Params.fontawesome_sets) 0 }}
+        <script defer src="/js/fontawesome.min.js"></script>
+        {{ range .Site.Params.fontawesome_sets }}
+        <script defer src="/js/fa-{{.}}.min.js"></script>
+        {{ end }}
+    {{ end }}
 </head>
 <body>
-<header><h1><a {{ if .IsHome }}class="active"{{ end }} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1></header>
-<nav>
-    {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-        <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>
-    {{ end }}
-</nav>
+{{ partial "header.html" . }}
 {{ block "main" . }}{{ end }}
+{{ partial "footer.html" . }}
+
+{{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>

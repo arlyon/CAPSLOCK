@@ -3,7 +3,7 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 tags: ["project"]
-category: ["Projects"]
+categories: ["Projects"]
 demo: ""
 source: ""
 ---

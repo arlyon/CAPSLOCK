@@ -98,6 +98,8 @@ code {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 body {
+  min-height: 100vh;
+  box-sizing: border-box;
   font-weight: 300;
   background-color: var(--background, #fff);
   color: var(--foreground, #000);
@@ -140,6 +142,11 @@ div.highlight pre[style] code[class^="language-"] {
 .tags {
   margin: 0 0.5em;
 }
+hr {
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid var(--foreground, #000);
+}
 div.gist > div.gist-file {
   border-width: 1px !important;
   border-color: var(--foreground, #000);
@@ -172,6 +179,10 @@ div.gist > div.gist-file > .gist-meta {
 div.gist > div.gist-file > .gist-meta a {
   color: var(--foreground, #000);
 }
+.contact {
+  font-size: 2em;
+  margin: 0.5em auto;
+}
 code {
   border: 1px solid var(--foreground-01, rgba(0,0,0,0.1));
   color: var(--foreground-08, rgba(0,0,0,0.8));
@@ -186,7 +197,10 @@ body {
   padding: 1em;
 }
 body > header {
-  margin: 1em auto;
+  margin: 4em auto 1em auto;
+}
+body > header > h1 {
+  margin: 0;
 }
 body > header > h1 > a {
   text-decoration: none;
@@ -211,10 +225,14 @@ body > main {
   width: 100%;
   margin: 2em auto;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
 }
 body > main #list {
   margin: 2em 0;
+}
+body > footer {
+  text-align: center;
 }
 article.summary {
   border-left: 2px solid var(--foreground, #000);

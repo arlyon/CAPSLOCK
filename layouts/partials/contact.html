@@ -1,0 +1,5 @@
+<div class="contact">
+    {{ range .Site.Params.contact }}
+    <a href="{{ .link }}"><i class="{{ .icon_type }} fa-{{ .icon_name }}"></i></a>
+    {{ end }}
+</div>
