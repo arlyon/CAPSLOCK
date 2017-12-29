@@ -1,0 +1,1 @@
+body{background-color:var(--background,#fff);color:var(--foreground,#000);font-weight:300;font-family:'Roboto Mono',monospace}.active{color:var(--background,#fff);background-color:var(--foreground,#000)}body{display:flex;flex-direction:column;padding:1em}

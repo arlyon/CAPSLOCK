@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<main>
+<main role="main">
     <header>
         <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}
         <span class="right">

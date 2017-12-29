@@ -1,5 +1,5 @@
-<header><h1><a {{ if .IsHome }}class="active"{{ end }} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1></header>
-<nav>
+<header role="banner"><h1><a {{ if .IsHome }}class="active"{{ end }} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1></header>
+<nav role="navigation">
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}
     <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>

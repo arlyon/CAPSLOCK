@@ -1,11 +1,29 @@
+{{if (where (readDir "/layouts/partials/") "Name" "art.html")}}{{ partial "art.html" . }}{{end}}
+{{ "<!-- Doctype HTML5 -->" | safeHTML }}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="{{if .Description}}{{.Description}}{{else}}{{ .Site.Params.description }}{{end}}" />
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+    {{ if (fileExists "/static/css/custom.css") }}<link rel="stylesheet" href="/css/custom.css" />{{ end }}
+    <style>
+        {{ readFile "/themes/CAPSLOCK/static/css/critical.css" | safeCSS }}
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+
+    {{ if not .IsPage }}
+        {{with .Paginator}}{{with .Next}}<link rel="next" href="{{.URL}}"/>{{end}}{{end}}
+        {{with .Paginator}}{{with .Prev}}<link rel="prev" href="{{.URL}}"/>{{end}}{{end}}
+    {{ else }}
+        {{with .Next}}<link rel="next" href="{{.URL}}" />{{end}}
+        {{with .Prev}}<link rel="prev" href="{{.URL}}" />{{end}}
+    {{ end }}
+
+    {{ partial "loadCSS.html" . }}
 
     {{ if gt (len .Site.Params.fontawesome_sets) 0 }}
         <script defer src="/js/fontawesome.min.js"></script>

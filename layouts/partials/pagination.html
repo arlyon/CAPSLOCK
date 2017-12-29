@@ -1,4 +1,4 @@
-{{ $pag := $.Paginator }}
+{{ $pag := .Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 <ul class="pagination">
     {{ with $pag.First }}
@@ -7,7 +7,7 @@
     </li>
     {{ end }}
     <li
-            {{ if not $pag.HasPrev }}class="disabled"{{ end }}>
+        {{ if not $pag.HasPrev }}class="disabled"{{ end }}>
         <a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous"><span aria-hidden="true">prev</span></a>
     </li>
     {{ $.Scratch.Set "__paginator.ellipsed" false }}

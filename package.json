@@ -6,6 +6,6 @@
     "stylus": "^0.54.5"
   },
   "scripts": {
-    "start": "stylus ./static/css/style.styl -w"
+    "start": "stylus ./static/css/style.styl ./static/css/critical.styl -w -c"
   }
 }
