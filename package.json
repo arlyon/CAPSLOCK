@@ -4,5 +4,8 @@
   "license": "MIT",
   "dependencies": {
     "stylus": "^0.54.5"
+  },
+  "scripts": {
+    "start": "stylus ./static/css/style.styl -w"
   }
 }

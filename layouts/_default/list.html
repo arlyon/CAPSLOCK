@@ -1,29 +1,11 @@
 {{ define "main" }}
 <main>
     {{with .Content}}
-    <section id="blurb">{{.}}</section>
+        <section id="blurb">{{.}}</section>
     {{end}}
     <section id="list">
     {{ range .Paginator.Pages }}
-    <article class="summary">
-        <header>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            {{if .Params.Draft}}
-            {{ partial "draft.html" . }}
-            {{end}}
-            <div class="date">{{ .Date }}</div>
-        </header>
-        <main>
-            {{ if .Summary }}
-            {{.Summary}}
-            {{else}}
-            <span class="fade">No Description</span>
-            {{end}}
-            {{ if .Truncated }}
-            <a href="{{ .RelPermalink }}">Read More</a>
-            {{ end }}
-        </main>
-    </article>
+        {{ partial "summary.html" . }}
     {{ end }}
     </section>
     {{ partial "pagination.html" . }}

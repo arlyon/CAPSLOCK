@@ -1,3 +1,88 @@
+/* Typebase.less v0.1.0 | MIT License */
+html {
+/* Change default typefaces here */
+  font-family: serif;
+  font-size: 75%;
+  -webkit-font-smoothing: antialiased;
+}
+p {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+ul,
+ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+ul li,
+ol li {
+  line-height: 1.5rem;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+blockquote {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+/* Change heading typefaces here */
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  line-height: 1.5rem;
+}
+h1 {
+  font-size: 3rem;
+  line-height: 4.5rem;
+  margin-top: 3rem;
+}
+h2 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 3rem;
+}
+h3 {
+  font-size: 1rem;
+}
+h4 {
+  font-size: 1/2rem;
+}
+h5 {
+  font-size: 1/3rem;
+}
+h6 {
+  font-size: 1/4rem;
+}
+table {
+  margin-top: 1.5rem;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 0;
+  line-height: 18px;
+}
+code {
+  vertical-align: bottom;
+}
+.lead {
+  font-size: 1rem;
+}
+.hug {
+  margin-top: 0;
+}
 @font-face {
   font-family: 'Roboto Mono';
   font-style: normal;
@@ -14,13 +99,12 @@
 }
 body {
   font-weight: 300;
-  background-color: #fff;
-  font-size: 12px;
-  color: #000;
+  background-color: var(--background, #fff);
+  color: var(--foreground, #000);
   font-family: 'Roboto Mono', monospace;
 }
 a {
-  color: #000;
+  color: var(--foreground, #000);
 }
 div.highlight {
   font-weight: inherit;
@@ -29,30 +113,36 @@ div.highlight {
 div.highlight pre[style] {
   background-color: transparent !important;
 }
+div.highlight pre[style] code[class^="language-"] {
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+}
 .active {
-  color: #fff;
-  background-color: #000;
+  color: var(--background, #fff);
+  background-color: var(--foreground, #000);
 }
 .fade {
-  color: rgba(0,0,0,0.3);
+  color: var(--foreground-03, rgba(0,0,0,0.3));
 }
 .tag {
   text-decoration: none;
   padding: 0 0.2em;
-  border: 1px solid #000;
+  border: 1px solid var(--foreground, #000);
   font-weight: 500;
 }
 .tag.draft {
   color: #f00;
   background-color: transparent;
   border-color: #f00;
+  margin-left: 0.5em;
 }
 .tags {
   margin: 0 0.5em;
 }
 div.gist > div.gist-file {
   border-width: 1px !important;
-  border-color: #000;
+  border-color: var(--foreground, #000);
   padding: 1em;
   margin-bottom: 2em;
 }
@@ -67,20 +157,27 @@ div.gist > div.gist-file > .gist-data table.highlight td,
 div.gist > div.gist-file > .gist-data span {
   font-family: monospace !important;
   font-weight: 300;
-  color: #000 !important;
+  color: var(--foreground, #000) !important;
 }
 div.gist > div.gist-file > .gist-data table.highlight td.pl-k,
 div.gist > div.gist-file > .gist-data span.pl-k {
   font-weight: bold;
-  color: #000;
+  color: var(--foreground, #000);
 }
 div.gist > div.gist-file > .gist-meta {
   background-color: transparent;
-  color: #000;
+  color: var(--foreground, #000);
   font-family: monospace;
 }
 div.gist > div.gist-file > .gist-meta a {
-  color: #000;
+  color: var(--foreground, #000);
+}
+code {
+  border: 1px solid var(--foreground-01, rgba(0,0,0,0.1));
+  color: var(--foreground-08, rgba(0,0,0,0.8));
+  background-color: var(--foreground-005, rgba(0,0,0,0.05));
+  padding: 0 0.3em;
+  font-weight: 500;
 }
 body {
   min-width: 420px;
@@ -89,12 +186,9 @@ body {
   padding: 1em;
 }
 body > header {
-  font-weight: 500;
-  font-size: 3em;
   margin: 1em auto;
-  text-align: center;
 }
-body > header a {
+body > header > h1 > a {
   text-decoration: none;
   padding: 0.1em 0.4em;
   user-select: none;
@@ -102,10 +196,9 @@ body > header a {
 body > nav {
   margin: 1em;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
-body > nav a {
+body > nav > a {
   margin: 0 1em;
   padding: 0.1em 0.4em;
   font-size: 1.5em;
@@ -115,37 +208,47 @@ body > nav a {
 }
 body > main {
   max-width: 800px;
-  margin: 2em auto;
   width: 100%;
+  margin: 2em auto;
   display: flex;
   flex-direction: column;
 }
 body > main #list {
   margin: 2em 0;
 }
-body > main article {
-  border-left: 2px solid #000;
-  font-size: 1.1em;
-}
-body > main article.summary {
+article.summary {
+  border-left: 2px solid var(--foreground, #000);
   margin: 1em 0;
   padding: 1em;
 }
-body > main article.summary header {
+article.summary header {
   display: flex;
   flex-direction: row;
 }
-body > main article.summary header a {
+article.summary header > h3 {
+  margin-top: 0;
+}
+article.summary header a {
   font-weight: 500;
 }
-body > main article.summary header .draft {
-  margin-left: 0.5em;
-}
-body > main article.summary header div.date {
+article.summary header .right {
   margin-left: auto;
 }
-body > main article.summary main {
+article.summary main {
   margin: 1em 0 0 0;
+}
+main > header h1 {
+  margin: 0;
+  display: flex;
+}
+main > header .right {
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
+main > header .right > a {
+  margin-left: 0.5em;
 }
 ul.pagination {
   list-style: none;
@@ -159,10 +262,10 @@ ul.pagination li {
   padding: 0.2em 0.6em;
 }
 ul.pagination li.active >a {
-  color: #fff;
+  color: var(--background, #fff);
 }
 ul.pagination li.disabled >a {
-  color: rgba(0,0,0,0.3);
+  color: var(--foreground-03, rgba(0,0,0,0.3));
   text-decoration: none;
   pointer-events: none;
   cursor: default;

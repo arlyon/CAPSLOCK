@@ -1,0 +1,17 @@
+{{ define "title" }}
+{{ .Title }} – {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<main>
+    <header>
+        <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}
+        <span class="right">
+            {{with .Params.demo}}<a href="{{.}}">demo</a>{{end}}
+            {{with .Params.source}}<a href="{{.}}">source</a>{{end}}
+        </span>
+        </h1>
+    </header>
+    {{ .Content }}
+</main>
+{{ end }}

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
 </head>
 <body>
-<header><a {{ if .IsHome}}class="active"{{end}} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></header>
+<header><h1><a {{ if .IsHome }}class="active"{{ end }} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1></header>
 <nav>
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}

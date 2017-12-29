@@ -1,5 +1,5 @@
-background = #FFFFFF
-foreground = #000000
+@import "typebase.styl"
+@import "vars.styl"
 
 // fonts
 @font-face
@@ -7,47 +7,51 @@ foreground = #000000
   font-style normal
   font-weight 300
   src local('Roboto Mono Light'), local('RobotoMono-Light'), url(https://fonts.gstatic.com/s/robotomono/v4/N4duVc9C58uwPiY8_59Fz9TIkQYohD4BpHvJ3NvbHoA.woff2) format('woff2')
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
 
 @font-face
   font-family 'Roboto Mono'
   font-style normal
   font-weight 500
-  src: local('Roboto Mono Medium'), local('RobotoMono-Medium'), url(https://fonts.gstatic.com/s/robotomono/v4/N4duVc9C58uwPiY8_59Fz3JuJo8UJJfpGKt7pXjBv4s.woff2) format('woff2')
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+  src local('Roboto Mono Medium'), local('RobotoMono-Medium'), url(https://fonts.gstatic.com/s/robotomono/v4/N4duVc9C58uwPiY8_59Fz3JuJo8UJJfpGKt7pXjBv4s.woff2) format('woff2')
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
 
 // basic
 body
   font-weight 300
-  background-color background
-  font-size 12px
-  color foreground
+  background-color var(--background, background)
+  color var(--foreground, foreground)
   font-family 'Roboto Mono', monospace
 
 a
-  color foreground
+  color var(--foreground, foreground)
 
 div.highlight
   font-weight inherit
   font-size inherit
   pre[style]
     background-color transparent !important
+    code[class^="language-"]
+      background-color transparent
+      border-width 0
+      padding 0
 
 .active
-  color background
-  background-color foreground
+  color var(--background, background)
+  background-color var(--foreground, foreground)
 
 .fade
-  color rgba(foreground,0.3)
+  color var(--foreground-03, rgba(foreground, 0.3))
 
 .tag
   &.draft
     color red
     background-color transparent
     border-color red
+    margin-left 0.5em
   text-decoration none
   padding 0 0.2em
-  border 1px solid foreground
+  border 1px solid var(--foreground, foreground)
   font-weight 500
 
 .tags
@@ -55,7 +59,7 @@ div.highlight
 
 div.gist > div.gist-file
   border-width 1px  !important
-  border-color foreground
+  border-color var(--foreground, foreground)
   padding 1em
   margin-bottom 2em
   > .gist-data
@@ -66,16 +70,23 @@ div.gist > div.gist-file
     table.highlight td,span
       font-family monospace !important
       font-weight 300
-      color foreground !important
+      color var(--foreground, foreground) !important
       &.pl-k
         font-weight bold
-        color foreground
+        color var(--foreground, foreground)
   > .gist-meta
     background-color transparent
-    color foreground
+    color var(--foreground, foreground)
     font-family monospace
     a
-      color foreground
+      color var(--foreground, foreground)
+
+code
+  border 1px solid var(--foreground-01, rgba(foreground, 0.1))
+  color var(--foreground-08, rgba(foreground, 0.8))
+  background-color var(--foreground-005, rgba(foreground, 0.05))
+  padding 0 0.3em
+  font-weight 500
 
 // main
 body
@@ -84,58 +95,64 @@ body
   flex-direction column
   padding 1em
 
-body > header
-  font-weight 500
-  font-size 3em
-  margin 1em auto
-  text-align center
+  > header
+    margin 1em auto
 
-  a
-    text-decoration none
-    padding 0.1em 0.4em
-    user-select: none
+    > h1 > a
+      text-decoration none
+      padding 0.1em 0.4em
+      user-select: none
 
-body > nav
-  margin 1em
-  display flex
-  align-items center
-  justify-content center
+  > nav
+    margin 1em
+    display flex
+    justify-content center
 
-  a
-    margin 0 1em
-    padding 0.1em 0.4em
-    font-size 1.5em
-    text-decoration none
-    text-transform uppercase
-    user-select: none
+    > a
+      margin 0 1em
+      padding 0.1em 0.4em
+      font-size 1.5em
+      text-decoration none
+      text-transform uppercase
+      user-select: none
 
-body > main
-  max-width 800px
-  margin 2em auto
-  width 100%
-  display flex
-  flex-direction column
+  > main
+    max-width 800px
+    width 100%
+    margin 2em auto
+    display flex
+    flex-direction column
 
-  #list
-    margin 2em 0
+    #list
+      margin 2em 0
 
-  article
-    border-left 2px solid foreground
-    font-size 1.1em
-    &.summary
-      margin 1em 0
-      padding 1em
-      header
-        display flex
-        flex-direction row
-        a
-          font-weight 500
-        .draft
-          margin-left 0.5em
-        div.date
-          margin-left auto
-      main
-        margin 1em 0 0 0
+article.summary
+  border-left 2px solid var(--foreground, foreground)
+  margin 1em 0
+  padding 1em
+  header
+    display flex
+    flex-direction row
+    > h3
+      margin-top 0
+    a
+      font-weight 500
+    .right
+      margin-left auto
+  main
+    margin 1em 0 0 0
+
+main > header
+  h1
+    margin 0
+    display flex
+  .right
+    display flex
+    margin-left auto
+    justify-content center
+    align-items center
+    > a
+      margin-left 0.5em
 
 ul.pagination
   list-style none
@@ -148,10 +165,10 @@ ul.pagination
     padding 0.2em 0.6em
     &.active
       >a
-        color background
+        color var(--background, background)
     &.disabled
       >a
-        color rgba(foreground, 0.3)
+        color var(--foreground-03, rgba(foreground, 0.3))
         text-decoration none
         pointer-events: none;
         cursor: default;
