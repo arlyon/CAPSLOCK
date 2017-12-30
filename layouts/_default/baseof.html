@@ -13,7 +13,12 @@
     <style>
         {{ readFile "/themes/CAPSLOCK/static/css/critical.css" | safeCSS }}
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"></noscript>
+
+    <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
 
     {{ if not .IsPage }}
         {{with .Paginator}}{{with .Next}}<link rel="next" href="{{.URL}}"/>{{end}}{{end}}

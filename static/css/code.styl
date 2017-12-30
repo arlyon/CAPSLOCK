@@ -1,0 +1,36 @@
+pre
+  background-color transparent !important
+  code[class^="language-"]
+    background-color transparent
+    border-width 0
+    padding 0
+
+code
+  border 1px solid var(--foreground-01, rgba(foreground, 0.1))
+  color var(--foreground-08, rgba(foreground, 0.8))
+  background-color var(--foreground-005, rgba(foreground, 0.05))
+  padding 0 0.3em
+  font-weight 500
+
+div.gist > div.gist-file
+  border-width 0  !important
+  padding 1em
+  margin-bottom 0
+  > .gist-data
+    border-bottom-width 0 !important
+    background-color transparent
+    .highlight
+      background-color transparent
+    table.highlight td,span
+      font-family "Roboto Mono", monospace !important
+      font-weight 300
+      color var(--foreground, foreground) !important
+      &.pl-k
+        font-weight bold
+        color var(--foreground, foreground)
+  > .gist-meta
+    background-color transparent
+    color var(--foreground, foreground)
+    font-family "Roboto Mono", monospace
+    a
+      color var(--foreground, foreground)
