@@ -3,19 +3,22 @@
 
 name = "CAPSLOCK"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = "http://example.com/"
-tags = []
-features = []
+licenselink = "https://github.com/arlyon/CAPSLOCK/blob/master/LICENSE.md"
+description = "A minimal monospace theme."
+homepage = "https://www.github.com/arlyon/CAPSLOCK"
+tags = ["minimal", "monospace"]
+features = [
+    "Draft Indicator",
+    "Tags and Categories",
+    "Gist Archetype",
+    "Project Archetype",
+    "Customizable fore and background colors",
+    "Optional read time",
+    "Optional (and flexible) font awesome integration",
+    "Netlify HTTP/2 headers for css
+]
 min_version = "0.31.1"
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "Alexander Lyon"
+  homepage = "blog.arlyon.co"

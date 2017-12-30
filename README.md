@@ -15,6 +15,7 @@ the box such as gists and projects. To see an example site, visit https://github
 - Customizable fore- and background colors.
 - Optional read time.
 - Optional (and flexible) font awesome integration.
+- Netlify HTTP/2 headers for css
 
 ### Getting Started
 
@@ -51,16 +52,19 @@ pygmentsStyle = "bw"
     icon_type = "fab"
     icon_name = "github"
     link = "https://www.github.com/arlyon/"
+    text = "GH"
 
 [[params.contact]]
     icon_type = "fab"
     icon_name = "twitter"
     link = "https://www.twitter.com/_arlyon/"
+    text = "TW"
 
 [[params.contact]]
     icon_type = "fas"
     icon_name = "envelope"
     link = "mailto:arlyon@me.com"
+    text = "@"
 
 ```
   
@@ -109,3 +113,24 @@ sets in font awesome free are `brands`, `regular`, and `solid` (accessed in the 
 
 - You can set a copyright message in the footer by adding the right param in the config. Refer
 to the example above for how to do it.
+
+- To automatically generate the proper HTTP/2 headers for netlify, simply add this to your site
+config:
+
+```toml
+[outputs]
+    home = [ "HTML", "RSS", "HEADERS" ]
+    page = [ "HTML" ]
+
+[mediaTypes]
+    [mediaTypes."text/netlify"]
+    suffix = ""
+    delimiter = ""
+
+[outputFormats]
+    [outputFormats.HEADERS]
+    mediatype = "text/netlify"
+    baseName = "_headers"
+    isPlainText = true
+    notAlternative = true
+```
