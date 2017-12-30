@@ -5,3 +5,4 @@
   Referrer-Policy: origin-when-cross-origin
 */
   Link: <{{ "/css/style.css" | relURL }}>; rel=preload; as=style
+  {{ if (fileExists "/static/css/custom.css") }}Link: <{{ "/css/custom.css" | relURL }}>; rel=preload; as=style{{ end }}
