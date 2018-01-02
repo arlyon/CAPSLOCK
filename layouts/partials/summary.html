@@ -4,7 +4,7 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             {{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}
         </h3>
-        <div class="right">{{ .Date.Format "Jan 1, 2006 15:04:05" }}</div>
+        <div class="right">{{ .Date.Format "Jan 2, 2006 15:04:05" }}</div>
     </header>
     <main>
         {{ if .Summary }}
