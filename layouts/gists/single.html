@@ -6,7 +6,7 @@
 <main role="main">
     <script src="//gist.github.com/{{.Params.User}}/{{.Params.Gist}}.js"></script>
     <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
-    {{if .Site.Params.show_read_time}}read it in {{.ReadingTime}} minute{{if (gt .ReadingTime 1)}}s{{end}}{{end}}
+    {{ partial "readtime.html" . }}
     {{ .Content }}
 </main>
 {{ end }}

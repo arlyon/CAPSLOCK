@@ -12,7 +12,7 @@
         </span>
         </h1>
     </header>
-    {{if .Site.Params.show_read_time}}read it in {{.ReadingTime}} minute{{if (gt .ReadingTime 1)}}s{{end}}{{end}}
+    {{ partial "readtime.html" . }}
     {{ .Content }}
 </main>
 {{ end }}
