@@ -3,9 +3,13 @@
 {{ end }}
 
 {{ define "main" }}
-<main role="main">
-    <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
+<main role="main" itemscope itemtype="http://schema.org/Article">
+    <meta itemprop="isFamilyFriendly" content="true" />
+    <meta itemprop="url" content="{{ .Permalink }}" />
+    {{ with .ReadingTime }}<meta itemprop="timeRequired" content="P{{.}}M" />{{ end }}
+    {{ with .Params.Tags }}<meta itemprop="keywords" content="{{ delimit . ", " }}" />{{ end }}
+    <h1 itemprop="name headline">{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
     {{ partial "readtime.html" . }}
-    {{ .Content }}
+    <div itemprop="text">{{ .Content }}</div>
 </main>
 {{ end }}

@@ -1,4 +1,4 @@
-<footer>
+<footer role="contentinfo">
     {{ if .Site.Params.show_contact_in_footer }}{{ partial "contact.html" . }}{{ end }}
     {{ with .Site.Params.copyright }}{{.}}{{ end }}
 </footer>

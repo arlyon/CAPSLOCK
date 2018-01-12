@@ -3,10 +3,16 @@
 {{ end }}
 
 {{ define "main" }}
-<main role="main">
-    <script src="//gist.github.com/{{.Params.User}}/{{.Params.Gist}}.js"></script>
-    <h1>{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
+<main role="main" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    {{ partial "meta.html" . }}
+    <meta itemtype="codeRepository" content="https://gist.github.com/arlyon/81761f01165fa73b262cf5540cfc818e" />
+    <meta itemtype="codeSampleType" content="code snippet" />
+    {{ with .Params.Language }}<meta itemtype="programmingLanguage" content="{{ . }}" />{{ end }}
+    {{ with .Params.Runtime }}<meta itemtype="runtimePlatform" content="{{ . }}" />{{ end }}
+        <script src="//gist.github.com/{{.Params.User}}/{{.Params.Gist}}.js"></script>
+    </div>
+    <h1 itemprop="name">{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
     {{ partial "readtime.html" . }}
-    {{ .Content }}
+    <div itemprop="text">{{ .Content }}</div>
 </main>
 {{ end }}

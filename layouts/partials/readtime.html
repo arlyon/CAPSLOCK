@@ -1,1 +1,1 @@
-{{if .Site.Params.show_read_time}}<span class="fade">a {{.ReadingTime}} minute read</span>{{end}}
+{{if .Site.Params.show_read_time}}<span class="fade">a <time datetime="P{{.ReadingTime}}M">{{.ReadingTime}} minute</time> read</span>{{end}}
