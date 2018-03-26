@@ -7,7 +7,7 @@
         {{.description}}
     </main>
     <ul class="buttons">
-        {{if isset . "demo" }}<li class="button"><a href="http://{{.demo}}">Demo</a></li>{{end}}
-        {{if isset . "source"}}<li class="button"><a href="http://{{.source}}">Source</a></li>{{end}}
+        {{if isset . "demo" }}<li class="button"><a href="{{.demo}}">Demo</a></li>{{end}}
+        {{if isset . "source"}}<li class="button"><a href="{{.source}}">Source</a></li>{{end}}
     </ul>
 </article>

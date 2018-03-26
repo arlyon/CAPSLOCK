@@ -1,0 +1,44 @@
+@supports (grid-area: auto)
+
+  @media screen and (min-width: 600px) and (max-width: 999px)
+    main.cv
+      display: grid;
+      grid-template-columns: 1fr minmax(auto, 650px) 1fr;
+      grid-template-rows: auto auto auto auto 1fr auto;
+      grid-template-areas: \
+              ". information      ." \
+              ". projects         ." \
+              ". education        ." \
+              ". internships      ." \
+              ". responsibilities ." \
+              ". skills           .";
+      > #view:after
+        content: 'medium grid 1'
+
+  @media screen and (min-width: 1000px) and (max-width: 1299px)
+    main.cv
+      display: grid;
+      grid-template-columns: 1fr minmax(auto, 400px) minmax(auto, 400px) 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas: \
+              ". information      skills      ." \
+              ". education        projects    ." \
+              ". responsibilities internships ." \;
+      > #view:after
+        content: 'medium grid 2'
+
+  @media screen and (min-width: 1000px)
+    main.cv
+      display: grid;
+      grid-template-columns: 3fr 300px minmax(40px, 1fr) minmax(300px, 400px) minmax(300px, 400px) 3fr;
+      grid-template-rows: 1fr repeat(3, auto) 1fr;
+      grid-template-areas: \
+              ". .           . .                .           ." \
+              ". information . education        projects    ." \
+              ". skills      . education        projects    ." \
+              ". skills      . responsibilities internships ." \
+              ". .           . .                .           .";
+      > #skills
+        padding 0 2em
+        > header
+          text-align center
