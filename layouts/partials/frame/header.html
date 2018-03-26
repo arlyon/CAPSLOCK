@@ -5,4 +5,4 @@
     <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>
     {{ end }}
 </nav>
-{{ if .Site.Params.show_contact_in_header }}{{ partial "contact.html" . }}{{ end }}
+{{ if .Site.Params.show_contact_in_header }}{{ partial "frame/contact.html" . }}{{ end }}

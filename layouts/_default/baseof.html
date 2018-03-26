@@ -33,9 +33,9 @@
     {{ end }}
 </head>
 <body>
-{{ if eq .Site.Params.cv false }}{{ partial "header.html" . }}{{ end }}
+{{ if not (eq .Site.Params.cv true) }}{{ partial "frame/header.html" . }}{{ end }}
 {{ block "main" . }}{{ end }}
-{{ if eq .Site.Params.cv false }}{{ partial "footer.html" . }}{{end}}
+{{ if not (eq .Site.Params.cv true) }}{{ partial "frame/footer.html" . }}{{end}}
 {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
