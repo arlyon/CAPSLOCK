@@ -2,23 +2,26 @@
   @media screen and (min-width: 600px)  and (max-width: 999px)
     main#cover.cv
       grid-template-rows: auto auto auto auto auto;
+      grid-template-columns 1fr 1fr
       grid-template-areas: \
-              "information        menu" \
-              "skills      skills" \
+              "information skills" \
+              "letter      letter" \
               "cover       cover" \
               "education   projects" \
               "internships responsibilities";
 
   @media screen and (min-width: 1000px) and (max-width: 1599px)
     main#cover.cv
-      grid-template-rows: minmax(2em, 1fr) auto auto auto auto minmax(2em, 1fr);
+      grid-template-columns: 1fr repeat(2, minmax(300px, 400px)) 1fr;
+      grid-template-rows: minmax(2em, 1fr) repeat(5, auto) minmax(2em, 1fr);
       grid-template-areas: \
-              "menu . .                .           ." \
-              "menu . cover            cover       ." \
-              "menu . education        projects    ." \
-              "menu . responsibilities internships ." \
-              "menu . skills           skills      ." \
-              "menu . .                .           .";
+              ". .                .           ." \
+              ". information      information ." \
+              ". letter           letter      ." \
+              ". education        projects    ." \
+              ". responsibilities internships ." \
+              ". skills           skills      ." \
+              ". .                .           .";
 
   @media screen and (min-width: 1600px)
     main#cover.cv
@@ -30,3 +33,6 @@
               ". skills      . education        projects    . letter ." \
               ". skills      . responsibilities internships . letter ." \
               ". .           . .                .           . .      .";
+
+      > #skills
+        display block

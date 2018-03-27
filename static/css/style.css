@@ -78,7 +78,7 @@ table {
 td,
 th {
   padding: 0;
-  line-height: 21px;
+  line-height: 24px;
 }
 code {
   vertical-align: bottom;
@@ -208,9 +208,7 @@ article.card a {
     }
     main.cv > #skills {
       padding: 0 2em;
-    }
-    main.cv > #skills > header {
-      text-align: center;
+      display: block;
     }
 }
 }
@@ -218,13 +216,15 @@ article.card a {
 @media screen and (min-width: 600px) and (max-width: 999px) {
     main#cover.cv {
       grid-template-rows: auto auto auto auto auto;
-      grid-template-areas: "information        menu" "skills      skills" "cover       cover" "education   projects" "internships responsibilities";
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "information skills" "letter      letter" "cover       cover" "education   projects" "internships responsibilities";
     }
 }
 @media screen and (min-width: 1000px) and (max-width: 1599px) {
     main#cover.cv {
-      grid-template-rows: minmax(2em, 1fr) auto auto auto auto minmax(2em, 1fr);
-      grid-template-areas: "menu . .                .           ." "menu . cover            cover       ." "menu . education        projects    ." "menu . responsibilities internships ." "menu . skills           skills      ." "menu . .                .           .";
+      grid-template-columns: 1fr repeat(2, minmax(300px, 400px)) 1fr;
+      grid-template-rows: minmax(2em, 1fr) repeat(5, auto) minmax(2em, 1fr);
+      grid-template-areas: ". .                .           ." ". information      information ." ". letter           letter      ." ". education        projects    ." ". responsibilities internships ." ". skills           skills      ." ". .                .           .";
     }
 }
 @media screen and (min-width: 1600px) {
@@ -232,6 +232,9 @@ article.card a {
       grid-template-columns: 2fr 300px 1fr minmax(300px, 400px) minmax(300px, 400px) 0.5fr minmax(300px, 400px) 2fr;
       grid-template-rows: 1fr repeat(3, auto) 1fr;
       grid-template-areas: ". .           . .                .           . .      ." ". information . education        projects    . letter ." ". skills      . education        projects    . letter ." ". skills      . responsibilities internships . letter ." ". .           . .                .           . .      .";
+    }
+    main#cover.cv > #skills {
+      display: block;
     }
 }
 }
@@ -305,7 +308,7 @@ hr {
   border-bottom: 1px solid var(--foreground, #000);
 }
 body {
-  font-size: 14px;
+  font-size: 16px;
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -418,15 +421,18 @@ main.cv > #information {
 main.cv > #letter > p:first-child {
   margin: 0;
 }
-section#skills>ul {
-  margin: -0.5em;
-  padding: 1em 0 0.5em 0;
+section#skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section#skills >ul {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
 }
-section#skills>ul >li {
+section#skills >ul >li {
   list-style: none;
-  display: flex;
   padding: 0 0.5em;
 }
 /*# sourceMappingURL=style.css.map */
