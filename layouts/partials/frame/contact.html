@@ -1,6 +1,6 @@
 <div class="contact">
     {{ range .Site.Params.contact }}
-    <a href="{{ .link }}">
+    <a aria-label="{{.icon_name}}" href="{{ .link }}">
         <span class="fa-layers">
             <i class="{{ .icon_type }} fa-{{ .icon_name }}"></i>
             {{ with .text }}
