@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main role="main" {{if eq .Site.Params.cv true}}class="cv"{{end}}>
     {{ if eq .Site.Params.cv true }}
-        {{ partial "cv/cv.html" .}}
+        {{ partial "cv.html" .}}
     {{ else }}
         {{with .Content}}
         <section id="blurb">{{.}}</section>

@@ -5,6 +5,7 @@
         <a href="https://github.com/{{ .Site.Data.me.github }}">github</a>
         <a href="{{ .Site.Data.me.site }}">homepage</a>
     </div>
+    <p>{{ .Site.Data.me.blurb }}</p>
 </section>
 {{ if .IsPage }}
 <section id="letter">
@@ -40,7 +41,7 @@
 <section id="skills">
     <ul>
         {{ range .Site.Data.technologies }}
-        {{ partial "cv/skill.html" . }}
+            <li>{{.}}</li>
         {{ end }}
     </ul>
 </section>
