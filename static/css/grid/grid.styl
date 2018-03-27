@@ -1,0 +1,27 @@
+// small: 0 - 779
+// medium1: 780 - 1119
+// medium2: 1120 - 1799
+// large: 1800+
+
+@import 'cv.styl';
+@import 'cover.styl';
+
+@supports (grid-area: auto)
+  main.cv
+    width 100%
+    margin 0
+    min-height: 100vh
+    > #letter
+      grid-area letter
+    > #information
+      grid-area: information;
+    > #skills
+      grid-area: skills;
+    > #education
+      grid-area: education;
+    > #projects
+      grid-area: projects;
+    > #internships
+      grid-area: internships;
+    > #responsibilities
+      grid-area: responsibilities;

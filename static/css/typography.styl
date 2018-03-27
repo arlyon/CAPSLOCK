@@ -1,8 +1,23 @@
-// Typebase.less v0.1.0 | MIT License
+@import "variables.styl"
 
-@import "vars.styl"
+// fonts
 
-/* Copy & Lists */
+@font-face
+  font-family 'Roboto Mono'
+  font-style normal
+  font-weight 300
+  src local('Roboto Mono Light'), local('RobotoMono-Light'), url(https://fonts.gstatic.com/s/robotomono/v4/N4duVc9C58uwPiY8_59Fz9TIkQYohD4BpHvJ3NvbHoA.woff2) format('woff2')
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+@font-face
+  font-family 'Roboto Mono'
+  font-style normal
+  font-weight 500
+  src local('Roboto Mono Medium'), local('RobotoMono-Medium'), url(https://fonts.gstatic.com/s/robotomono/v4/N4duVc9C58uwPiY8_59Fz3JuJo8UJJfpGKt7pXjBv4s.woff2) format('woff2')
+  unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+// typebase v0.1.0 | MIT License
+
 p
   line-height        leading
   margin-top       leading
@@ -26,15 +41,12 @@ blockquote
   margin-top leading
   margin-bottom leading
 
-/* Headings */
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6
-  /* Change heading typefaces here */
   margin-top    leading
   margin-bottom 0
   line-height   leading
@@ -61,8 +73,6 @@ h5
 h6
   font-size     scale / 4 * 1rem
 
-/* Tables */
-
 table
   margin-top      leading
   border-spacing  0px
@@ -71,20 +81,8 @@ table
 td,
 th
   padding     0
-  line-height baseLineHeight * baseFontSize - 0px
-
-/* Code blocks */
+  line-height baseline-height * font-size - 0px
 
 code
   // Forces text to constrain to the line-height. Not ideal, but works.
   vertical-align bottom
-
-/* Leading paragraph text */
-
-.lead
-  font-size scale * 1rem
-
-/* Hug a the block above you */
-
-.hug
-  margin-top 0

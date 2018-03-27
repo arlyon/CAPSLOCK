@@ -1,0 +1,5 @@
+<span class="date">
+    {{ with .start }}{{.}}{{end}}
+    {{ if (and (isset . "start") (isset . "end"))}}-{{end}}
+    {{with .end}}{{.}}{{end}}
+</span>

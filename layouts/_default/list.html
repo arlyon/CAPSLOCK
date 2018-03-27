@@ -1,13 +1,17 @@
 {{ define "main" }}
-<main role="main">
-    {{with .Content}}
+<main role="main" {{if eq .Site.Params.cv true}}class="cv"{{end}}>
+    {{ if eq .Site.Params.cv true }}
+        {{ partial "cv/cv.html" .}}
+    {{ else }}
+        {{with .Content}}
         <section id="blurb">{{.}}</section>
+        {{end}}
+        <section id="list">
+            {{ range .Paginator.Pages }}
+            {{ partial "summary.html" . }}
+            {{ end }}
+        </section>
+        {{ partial "components/pagination.html" . }}
     {{end}}
-    <section id="list">
-    {{ range .Paginator.Pages }}
-        {{ partial "summary.html" . }}
-    {{ end }}
-    </section>
-    {{ partial "pagination.html" . }}
 </main>
 {{ end }}

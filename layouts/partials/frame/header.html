@@ -1,8 +1,8 @@
-<header role="banner"><h1><a {{ if .IsHome }}class="active"{{ end }} href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1></header>
+<header role="banner"><a href="{{ "/" | relURL }}"><h1 {{ if .IsHome }}class="active"{{ end }}>{{ .Site.Title }}</h1></a></header>
 <nav role="navigation">
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}
     <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>
     {{ end }}
 </nav>
-{{ if .Site.Params.show_contact_in_header }}{{ partial "contact.html" . }}{{ end }}
+{{ if .Site.Params.show_contact_in_header }}{{ partial "frame/contact.html" . }}{{ end }}

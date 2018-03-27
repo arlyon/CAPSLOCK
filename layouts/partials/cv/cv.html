@@ -1,0 +1,47 @@
+<section id="information">
+    <div>{{ .Site.Data.me.name }}</div>
+    <div>{{ .Site.Data.me.currently }}</div>
+    <div>
+        <a href="https://github.com/{{ .Site.Data.me.github }}">github</a>
+        <a href="{{ .Site.Data.me.site }}">homepage</a>
+    </div>
+</section>
+{{ if .IsPage }}
+<section id="letter">
+    {{ .Content }}
+    <p id="consideration">I am looking forward to hearing back from you. Thank you for your consideration,</p>
+    <img id="signature" src="/assets/signature.png">
+</section>
+{{ end }}
+<section id="projects">
+    <header>Projects</header>
+    {{ range .Site.Data.projects }}
+    {{ partial "cv/project.html" . }}
+    {{ end }}
+</section>
+<section id="education">
+    <header>Education</header>
+    {{ range .Site.Data.education }}
+    {{ partial "cv/course.html" . }}
+    {{ end }}
+</section>
+<section id="internships">
+    <header>Internships</header>
+    {{ range .Site.Data.internships }}
+    {{ partial "cv/internship.html" . }}
+    {{ end }}
+</section>
+<section id="responsibilities">
+    <header>Responsibilities</header>
+    {{ range .Site.Data.responsibilities }}
+    {{ partial "cv/responsibility.html" . }}
+    {{ end }}
+</section>
+<section id="skills">
+    <header>Technologies</header>
+    <ul>
+        {{ range .Site.Data.technologies }}
+        {{ partial "cv/skill.html" . }}
+        {{ end }}
+    </ul>
+</section>

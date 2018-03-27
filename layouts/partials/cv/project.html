@@ -1,0 +1,13 @@
+<article class="card">
+    {{ if isset . "img" }}
+    <img src="assets/projects/{{.img}}">
+    {{ end }}
+    <header>{{ .title }}</header>
+    <main>
+        {{.description}}
+    </main>
+    <ul class="buttons">
+        {{if isset . "demo" }}<li class="button"><a href="{{.demo}}">Demo</a></li>{{end}}
+        {{if isset . "source"}}<li class="button"><a href="{{.source}}">Source</a></li>{{end}}
+    </ul>
+</article>

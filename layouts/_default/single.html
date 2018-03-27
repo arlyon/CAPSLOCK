@@ -8,8 +8,8 @@
     <meta itemprop="url" content="{{ .Permalink }}" />
     {{ with .ReadingTime }}<meta itemprop="timeRequired" content="P{{.}}M" />{{ end }}
     {{ with .Params.Tags }}<meta itemprop="keywords" content="{{ delimit . ", " }}" />{{ end }}
-    <h1 itemprop="name headline">{{ .Title }}{{if .Params.Draft}}{{ partial "draft.html" . }}{{end}}</h1>
-    {{ partial "readtime.html" . }}
+    <h1 itemprop="name headline">{{ .Title }}{{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}</h1>
+    {{ partial "components/readtime.html" . }}
     <div itemprop="text">{{ .Content }}</div>
 </main>
 {{ end }}
