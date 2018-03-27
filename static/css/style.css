@@ -237,6 +237,8 @@ article.card a {
 }
 @supports (grid-area: auto) {
   main.cv {
+    width: 100%;
+    margin: 0;
     min-height: 100vh;
   }
   main.cv > #letter {
@@ -309,11 +311,20 @@ body {
 body > header {
   display: flex;
 }
-body > header > h1 {
-  margin: 4rem auto 1rem auto;
+@media screen and (min-width: 800px) {
+  body > header > a {
+    margin: 4rem auto 1rem auto;
+  }
 }
-body > header > h1 > a {
+@media screen and (max-width: 799px) {
+  body > header > a {
+    margin: 0 auto 1rem auto;
+  }
+}
+body > header > a > h1 {
+  text-align: center;
   padding: 0.1em 0.4em;
+  margin: 0;
   user-select: none;
 }
 body > nav {
@@ -331,6 +342,8 @@ body > main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
 }
 body > main > header h1 {
   margin: 0;
@@ -344,9 +357,6 @@ body > main > header .right {
 }
 body > main > header .right > a {
   margin-left: 0.5em;
-}
-body > main #list {
-  margin: 2em 0;
 }
 body > footer {
   text-align: center;
@@ -418,4 +428,3 @@ section#skills>ul >li {
   display: flex;
   padding: 0 0.5em;
 }
-/*# sourceMappingURL=style.css.map */
