@@ -6,7 +6,7 @@ the box such as gists and projects. To see an example site, visit https://github
 
 ![Example Picture](image.png)
 
-### Features
+## Features
 
 - Draft Indicator.
 - Tags and Categories.
@@ -16,8 +16,11 @@ the box such as gists and projects. To see an example site, visit https://github
 - Optional read time.
 - Optional (and flexible) font awesome integration.
 - Netlify HTTP/2 headers for css
+- CV Mode
+- Web Manifest and Favicon Support
+- Service worker and offline mode
 
-### Getting Started
+## Getting Started
 
 To get started, you can clone the repo.
 
@@ -25,13 +28,12 @@ To get started, you can clone the repo.
     
 or 
 
-    git submodule add https://github.com/taikii/whiteplain.git themes/whiteplain
+    git submodule add https://github.com/arlyon/CAPSLOCK.git themes/CAPSLOCK
     
 Then, edit your configuration file to set `CAPSLOCK` as the theme. Additionally, you
 can set some of the extra settings, laid out below.
 
 ```toml
-
 # Theme Settings
 
 theme = "CAPSLOCK"
@@ -45,6 +47,9 @@ pygmentsStyle = "bw"
     show_read_time = true
     show_contact_in_head = true
     show_contact_in_footer = true
+    foreground = "#000"
+    cv = false
+    service_worker = true
     fontawesome_sets = ["brands", "solid"]
     copyright = "no monkeys (or typewriters) were harmed in the making of this site"
 
@@ -65,34 +70,73 @@ pygmentsStyle = "bw"
     icon_name = "envelope"
     link = "mailto:arlyon@me.com"
     text = "@"
-
 ```
-  
-Finally, you can explore some of the achetypes and get started.
 
-### Supported Archetypes
+### CV Mode
 
-#### Gists
+The theme supports "CV mode" that takes a set of data and displays it. The data is split into categories, an example of
+which you can find [here](https://github.com/arlyon/resume). It is unique in that it is possible to write cover letters
+that can be inserted dynamically into the document alongside the CV such that it is possible to write cover letter documents
+for each potential application. 
+
+### Favicons
+
+To get your favicons up and running, simply go step by step through [this generator](https://realfavicongenerator.net/)
+and paste the resulting files into the `/static/favicons/` folder. They will be picked up automatically by CAPSLOCK. 
+The theme colors are determined by the foreground site parameter.
+
+### Service Worker
+
+There is a service worker configured to cache pages and enable offline use under the site parameters.
+If you want to use it, simply enable this setting. You will need a `site.webmanifest` in the favicons folder
+to enable the service worker, as well a file `offline.md` in your `content` folder with a message to display
+when the device tries to reach an un-cached page while offline.
+
+```markdown
++++
+title = "Offline"
+type = "offline"
++++
+
+# Sorry, You're Offline
+
+The requested page isn't cached on this device. To keep reading, please reconnect 
+to the internet and reload the page.
+```
+
+Powered by [Offline First SW](https://github.com/wildhaber/offline-first-sw)
+
+## Archetypes
+
+### Article
+
+An article is similar to the default but adds tags and categories.
+
+### Gists
 
 To create gists you can use the command `hugo new gists/code.md` and a new post of the
 gist archetype will be created. After that, simply edit the user and gist ids and the
 gist in question will be rendered onto the page.
 
-#### Projects
+### Projects
 
 To create a "project" you simply need to run the command `hugo new projects/mine.md` and
 the project archetype will be used. In the project archetype there is a demo and source
 field in the front matter that will appear on the page as a button.
 
-### Some Tips
+### Cover letters
+
+Cover letters are unique in that they display alongside your CV allowing you to write and send customized
+CVs to specific employers.
+
+## Tips
 
 - To set the "blurb" for each section, create an `_index.md` file in either the content root
 or one of the archetype folder. It will be included in the "list" view for that archetype.
 
 - To customize the color scheme you can create a `static/css/custom.css` file and set some 
-CSS variables in it. This will override the default black and white color scheme with the 
-colors you define. `custom.css` is loaded by the theme so anything you don't like otherwise
-can be overridden there also.
+CSS variables in it. This will override the default css with the 
+styles you define. It is also possible to override the theme colors using css variables.
 
 ```css
 :root {
@@ -134,3 +178,5 @@ config:
     isPlainText = true
     notAlternative = true
 ```
+
+Good luck and feel free to open an issue if you have any ideas, problems or fixes.
