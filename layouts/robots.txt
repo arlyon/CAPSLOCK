@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://blog.arlyon.co/sitemap.xml
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
