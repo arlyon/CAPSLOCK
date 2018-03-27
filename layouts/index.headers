@@ -3,7 +3,7 @@
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
-  Content-Security-Policy: default-src 'none'; base-uri 'self'; block-all-mixed-content; font-src fonts.gstatic.com; frame-ancestors 'none'; frame-src asciinema.org; img-src 'self'; media-src 'none'; object-src 'none'; script-src 'self' 'unsafe-inline' www.google-analytics.com  asciinema.org gist.github.com ; style-src 'self' 'unsafe-inline' assets-cdn.github.com
+  Content-Security-Policy: default-src 'none'; connect-src 'self'; base-uri 'self'; block-all-mixed-content; font-src fonts.gstatic.com; frame-ancestors 'none'; frame-src asciinema.org; img-src 'self'; media-src 'none'; object-src 'none'; script-src 'self' 'unsafe-inline' www.google-analytics.com  asciinema.org gist.github.com ; style-src 'self' 'unsafe-inline' assets-cdn.github.com
 */
   Link: <{{ "/css/style.css" | relURL }}>; rel=preload; as=style
   {{ if (fileExists "/static/css/custom.css") }}Link: <{{ "/css/custom.css" | relURL }}>; rel=preload; as=style{{ end }}
