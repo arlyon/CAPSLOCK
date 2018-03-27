@@ -4,4 +4,7 @@
         {{ partial "cv/timespan.html" . }}
     </header>
     <div>{{ .institution }}</div>
+    <ul>
+        {{ range .skills }}<li>{{.}}</li>{{end}}
+    </ul>
 </article>

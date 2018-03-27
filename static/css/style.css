@@ -162,6 +162,15 @@ article.card > header {
   margin-bottom: 0.1em;
   font-weight: 500;
 }
+article.card > ul {
+  color: #808080;
+  font-size: 0.8em;
+  margin: 1em 0 0 0;
+  padding: 0;
+}
+article.card > ul li {
+  list-style: none;
+}
 article.card > ul.buttons {
   margin: 0;
   padding: 0;
@@ -171,7 +180,7 @@ article.card > ul.buttons li {
 }
 article.card .date {
   font-size: 0.8em;
-  color: rgba(0,0,0,0.3);
+  color: #a6a6a6;
 }
 article.card a {
   color: inherit;
