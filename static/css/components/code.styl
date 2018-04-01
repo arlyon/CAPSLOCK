@@ -5,6 +5,8 @@ pre
   margin 1.5em 0 0 0
   padding 0 0 0 1em
   border-left 2px solid foreground
+  border-right 2px solid foreground
+  overflow-x: scroll
   code
     background-color transparent
     border-width 0
@@ -17,9 +19,12 @@ code
   padding 0 0.3em
   font-weight 500
 
+div.gist-container
+  margin 2em 0
+
 div.gist > div.gist-file
   border-width 0  !important
-  padding 1em
+  padding 1em 0
   margin-bottom 0
   > .gist-data
     border-bottom-width 0 !important
