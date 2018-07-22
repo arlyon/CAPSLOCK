@@ -1,0 +1,20 @@
+article.summary {
+  margin-bottom: 2em;
+  header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    > h3 {
+      margin-top: 0;
+    }
+    a {
+      font-weight: $font-weight-bold;
+    }
+    .right {
+      margin-left: auto;
+    }
+  }
+  div.card-content {
+    font-size: 1em;
+  }
+}

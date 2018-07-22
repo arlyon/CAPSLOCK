@@ -1,4 +1,4 @@
-<article class="summary" itemscope itemtype="http://schema.org/Article">
+<article class="card summary" itemscope itemtype="http://schema.org/Article">
     <meta itemprop="isFamilyFriendly" content="true" />
     <meta itemprop="url" content="{{ .Permalink }}" />
     {{ with .ReadingTime }}<meta itemprop="timeRequired" content="P{{.}}M" />{{ end }}
@@ -8,17 +8,17 @@
             <a href="{{ .RelPermalink }}" itemprop="name headline">{{ .Title }}</a>
             {{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}
         </h3>
-        <time class="right" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "Jan 2, 2006 15:04:05" }}</div>
+        <time class="right" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "Jan 2, 2006 15:04:05" }}</time>
     </header>
-    <main itemprop="description">
+    <div class="card-content" itemprop="description">
         {{ if .Summary }}
             {{.Summary}}
         {{else}}
-            <span class="fade">No Description</span>
+            <span style="opacity: 0.5">No Description</span>
         {{end}}
 
         {{ if .Truncated }}
             <a href="{{ .RelPermalink }}">Read More</a>
         {{ end }}
-    </main>
+    </div>
 </article>

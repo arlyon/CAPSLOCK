@@ -1,59 +1,18 @@
 @import "typography.scss";
 @import "variables.scss";
+@import "grid/grid.scss";
 @import "components/code.scss";
-
 @import "components/pagination.scss";
 @import "components/card.scss";
-@import "grid/grid.scss";
-
-.fade  {
-  color: var(--foreground-05, rgba($foreground, 0.5));
-}
-div.asciicast  {
-  display: flex !important;
-  iframe  {
-    margin: 2em auto !important;
-  }
-}
-
-table:not(.highlight) {
-  width: 75%;
-  margin: 2em auto;
-  tr {
-    border-bottom: 1px solid var(--foreground-03, rgba($foreground, 0.3));
-    td, th {
-      padding: 0.5em 1em;
-    }
-  }
-}
-
-.tag {
-  &.draft {
-    color: red;
-    background-color: transparent;
-    border-color: red;
-    margin-left: 0.5em;
-  }
-  text-decoration: none;
-  padding: 0 0.2em;
-  border: 1px solid var(--foreground, $foreground);
-  font-weight: 500;
-}
-
-div.tags {
-  margin: 0 0.5em;
-}
-
-hr {
-  width: 100%;
-  border-style: none;
-  border-bottom: 1px solid var(--foreground, $foreground);
-}
+@import "components/tags.scss";
+@import "components/summary.scss";
+@import "components/asciicast.scss";
 
 body {
   font-size: $font-size;
   min-height: 100vh;
   box-sizing: border-box;
+  overflow-y: scroll;
 
   > header {
     display: flex;
@@ -98,11 +57,6 @@ body {
     margin: 0 auto;
     width: 100%;
 
-    &.tags {
-      justify-content: center;
-      align-items: center;
-    }
-
     > header {
       h1 {
         margin: 0;
@@ -116,6 +70,57 @@ body {
         > a {
           margin-left: 0.5em;
         }
+      }
+    }
+    > section {
+      padding: 1em;
+      > header {
+        font-size: 1.5em;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    // tag list styles
+    &.tags {
+      justify-content: center;
+      align-items: center;
+    }
+    // cv overview styles
+    &.cv-overview {
+      > #information, #skills {
+        background-color: var(--foreground, $foreground);
+        color: var(--background, $background);
+        a {
+          color: var(--background, $background);
+        }
+      }
+      > #information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4em 0;
+        text-align: center;
+        > p {
+          margin: 1.5em 1.5em 0 1.5em;
+        }
+      }
+      #skills {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > ul {
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          > li {
+            list-style: none;
+            padding: 0 0.5em;
+          }
+        }
+      }
+      > #letter > *:first-child {
+        margin: 0;
       }
     }
   }
@@ -133,71 +138,14 @@ body {
   }
 }
 
-article.summary {
-  border-left: 2px solid var(--foreground, foreground);
-  margin: 1em 0;
-  padding: 1em;
-  header {
-    display: flex;
-    flex-direction: row;
-    > h3 {
-      margin-top: 0;
-    }
-    a {
-      font-weight: 500;
-    }
-    .right {
-      margin-left: auto;
-    }
-  }
-  main {
-    margin: 1em 0 0 0;
-  }
-}
-
-main > section {
-  padding: 1em;
-  > header {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-}
-
-main.cv-overview {
-  > #information, #skills {
-    background-color: var(--foreground, $foreground);
-    color: var(--background, $background);
-    a {
-      color: var(--background, $background);
-    }
-  }
-  > #information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4em 0;
-    text-align: center;
-    > p {
-      margin: 1.5em 1.5em 0 1.5em;
-    }
-  }
-  > #letter > p:first-child {
-    margin: 0;
-  }
-}
-
-section#skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  >ul {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    >li {
-      list-style: none;
-      padding: 0 0.5em;
+// non github code tables
+table:not(.highlight) {
+  width: 75%;
+  margin: 2em auto;
+  tr {
+    border-bottom: 1px solid var(--foreground-03, rgba($foreground, 0.3));
+    td, th {
+      padding: 0.5em 1em;
     }
   }
 }

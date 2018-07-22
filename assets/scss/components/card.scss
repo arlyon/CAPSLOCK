@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 article.card {
-  border-left: 3px solid $foreground;
+  border-left: 3px solid var(--foreground, $foreground);
   margin: 1em 0;
   padding-left: 1em;
   > img {
@@ -9,7 +9,7 @@ article.card {
   }
   > header {
     margin-bottom: 0.1em;
-    font-weight: 500;
+    font-weight: $font-weight-bold;
   }
   > .card-content {
     font-size: 0.8em;

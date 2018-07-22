@@ -19,7 +19,7 @@ code {
   color: var(--foreground-08, rgba($foreground, 0.8));
   background-color: var(--foreground-005, rgba($foreground, 0.05));
   padding: 0 0.3em;
-  font-weight: 500;
+  font-weight: $font-weight-bold;
 }
 
 div.gist-container {
@@ -37,11 +37,11 @@ div.gist > div.gist-file {
       background-color: transparent;
     }
     table.highlight td, span {
-      font-family: "Roboto Mono", monospace !important;
-      font-weight: 300;
+      font-family: $font-family, monospace !important;
+      font-weight: $font-weight-regular;
       color: var(--foreground, $foreground) !important;
       &.pl-k {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         color: var(--foreground, $foreground);
       }
     }
@@ -49,7 +49,7 @@ div.gist > div.gist-file {
   > .gist-meta {
     background-color: transparent;
     color: var(--foreground, $foreground);
-    font-family: "Roboto Mono", monospace;
+    font-family: $font-family, monospace;
     a {
       color: var(--foreground, $foreground);
     }
