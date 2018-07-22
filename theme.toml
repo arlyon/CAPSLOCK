@@ -17,8 +17,8 @@ features = [
     "Optional (and flexible) font awesome integration",
     "Netlify HTTP/2 headers for css
 ]
-min_version = "0.31.1"
+min_version = "0.45"
 
 [author]
   name = "Alexander Lyon"
-  homepage = "blog.arlyon.co"
+  homepage = "https://blog.arlyon.co"
