@@ -1,0 +1,37 @@
+
+
+
+
+
+@import 'cv.scss';
+@import 'cover.scss';
+
+@Supports (grid-area: auto) {
+  main.cv-overview {
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    min-height: 100vh;
+    > #letter {
+      grid-area: letter;
+    }
+    > #information {
+      grid-area: information;
+    }
+    > #skills {
+      grid-area: skills;
+    }
+    > #education {
+      grid-area: education;
+    }
+    > #projects {
+      grid-area: projects;
+    }
+    > #employment {
+      grid-area: internships;
+    }
+    > #responsibilities {
+      grid-area: responsibilities;
+    }
+  }
+}

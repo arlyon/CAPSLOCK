@@ -7,12 +7,17 @@
 
     {{ partial "frame/meta.html" . }}
 
-    <style type="text/css">
-        {{ readFile "/themes/CAPSLOCK/static/css/critical.css" | safeCSS }}
-    </style>
-
-    <link rel="stylesheet" href="/css/style.css">
-    {{ if (fileExists "/static/css/custom.css") }}<link rel="stylesheet" href="/css/custom.css" />{{ end }}
+    {{ $critical := resources.Get "scss/critical.scss" | toCSS }}
+    {{ if (fileExists "assets/scss/custom.scss") }}
+        {{ $custom := resources.Get "scss/custom.scss" | toCSS }}
+        {{ $inline := slice $critical $custom | resources.Concat "inline.css" }}
+        <style type="text/css">{{ $inline.Content | safeCSS }}</style>
+    {{ else }}
+        {{ $inline := $critical }}
+        <style type="text/css">{{ $inline.Content | safeCSS }}</style>
+    {{ end }}
+    {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" />
 
     {{ if not .IsPage }}
         {{with .Paginator}}{{with .Next}}<link rel="next" href="{{.URL}}"/>{{end}}{{end}}
