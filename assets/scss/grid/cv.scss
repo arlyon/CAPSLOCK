@@ -46,7 +46,7 @@
                            ". .           . .                .           ." ". information . education        projects    ." ". skills      . education        projects    ." ". skills      . responsibilities internships ." ". .           . .                .           .";
       > #skills {
         padding: 0 2em;
-        display: block;
+        display: block !important;
       }
     }
   }
