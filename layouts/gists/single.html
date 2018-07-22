@@ -5,8 +5,10 @@
 {{ define "main" }}
 <main role="main" itemscope itemtype="http://schema.org/SoftwareSourceCode">
     {{ partial "components/meta.html" . }}
-    <meta itemtype="codeRepository" content="https://gist.github.com/arlyon/81761f01165fa73b262cf5540cfc818e" />
-    <meta itemtype="codeSampleType" content="code snippet" />
+    {{ with .Params.source }}
+        <meta itemtype="codeRepository" content="{{ . }}" />
+        <meta itemtype="codeSampleType" content="full solution" />
+    {{ end }}
     {{ with .Params.Language }}<meta itemtype="programmingLanguage" content="{{ . }}" />{{ end }}
     {{ with .Params.Runtime }}<meta itemtype="runtimePlatform" content="{{ . }}" />{{ end }}
     <h1 itemprop="name">{{ .Title }}{{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}</h1>

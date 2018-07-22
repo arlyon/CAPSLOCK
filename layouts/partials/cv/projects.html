@@ -1,0 +1,11 @@
+<article class="card">
+    {{ with .Params.Img }}
+    <img src="assets/projects/{{ . }}">
+    {{ end }}
+    <header>{{ .Params.Title }}</header>
+    <div class="card-content">{{ .Content }}</div>
+    <ul class="buttons">
+        {{ with .Params.Demo }}<li class="button"><a href="{{ . }}">Demo</a></li>{{end}}
+        {{ with .Params.Source }}<li class="button"><a href="{{ . }}">Source</a></li>{{end}}
+    </ul>
+</article>

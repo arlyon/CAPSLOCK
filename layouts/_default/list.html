@@ -1,17 +1,39 @@
+{{/*
+This template conditionally renders either the default summary view,
+or the specific cv view associated with its section if cv mode is enabled.
+*/}}
 {{ define "main" }}
-<main role="main" {{if eq .Site.Params.cv true}}class="cv"{{end}}>
-    {{ if eq .Site.Params.cv true }}
-        {{ partial "cv.html" .}}
-    {{ else }}
-        {{with .Content}}
-        <section id="blurb">{{.}}</section>
+
+{{ $cv := .Site.Params.cv.enabled }}
+
+{{ if $cv }}
+    {{ $cv_home := (and $cv (eq .Kind "home")) }}
+    <main role="main" {{ if $cv_home }} class="cv-overview" {{ end }}>
+        {{ if $cv_home }}
+            {{ partial "cv.html" . }}
+        {{ else }}
+            <header><h2 style="text-align: center">experience with <span>{{ .Title }}</span></h2></header>
+            <section id="list">
+                {{ range .Paginator.Pages }}
+                    {{ if ne .Section "coverletters" }}
+                        {{ partial ( print "cv/" (lower .Section) ) . }}
+                    {{ else }}
+                        {{ partial "summary.html" . }}
+                    {{ end }}
+                {{ end }}
+            </section>
+            {{ partial "components/pagination.html" . }}
         {{end}}
+    </main>
+{{ else }}
+    <main role="main">
+        {{ with .Content }}<section id="blurb">{{ . }}</section>{{ end }}
         <section id="list">
             {{ range .Paginator.Pages }}
-            {{ partial "summary.html" . }}
+                {{ partial "summary.html" . }}
             {{ end }}
         </section>
         {{ partial "components/pagination.html" . }}
-    {{end}}
-</main>
+    </main>
+{{ end }}
 {{ end }}

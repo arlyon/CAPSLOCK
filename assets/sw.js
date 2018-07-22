@@ -1,7 +1,7 @@
 const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
-    '/css/style.css',
+    '/scss/style.css',
     '/js/fontawesome.min.js',
     '/js/fa-brands.min.js',
     '/js/fa-regular.min.js',
@@ -10,7 +10,7 @@ const BASE_CACHE_FILES = [
 ];
 
 const OFFLINE_CACHE_FILES = [
-    '/css/style.css',
+    '/scss/style.css',
     '/js/fontawesome.min.js',
     '/js/fa-brands.min.js',
     '/js/fa-regular.min.js',
@@ -19,7 +19,7 @@ const OFFLINE_CACHE_FILES = [
 ];
 
 const NOT_FOUND_CACHE_FILES = [
-    '/css/style.css',
+    '/scss/style.css',
     '/js/fontawesome.min.js',
     '/js/fa-brands.min.js',
     '/js/fa-regular.min.js',

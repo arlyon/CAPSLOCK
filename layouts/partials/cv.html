@@ -1,12 +1,13 @@
 <section id="information">
-    <div>{{ .Site.Data.me.name }}</div>
-    <div>{{ .Site.Data.me.currently }}</div>
+    {{ with .Site.Params.Author }}<div>{{ . }}</div>{{ end }}
+    {{ with .Site.Params.cv.data.currently }}<div>{{ . }}</div>{{ end }}
     <div>
-        <a href="https://github.com/{{ .Site.Data.me.github }}">github</a>
-        <a href="{{ .Site.Data.me.site }}">homepage</a>
+        {{ with .Site.Params.cv.data.github }}<a href="https://github.com/{{ . }}">github</a>{{ end }}
+        {{ with .Site.Params.cv.data.site }}<a href="{{ . }}">homepage</a>{{ end }}
     </div>
-    <p>{{ .Site.Data.me.blurb }}</p>
+    {{ with .Site.Params.cv.data.blurb }}<p>{{ . }}</p>{{ end }}
 </section>
+
 {{ if .IsPage }}
 <section id="letter">
     {{ .Content }}
@@ -14,34 +15,20 @@
     <img id="signature" src="/assets/signature.png">
 </section>
 {{ end }}
-<section id="projects">
-    <header>Projects</header>
-    {{ range .Site.Data.projects }}
-    {{ partial "cv/project.html" . }}
+
+{{ range $seq := where .Site.Sections "Title" "in" (apply .Site.Params.cv.sections "title" ".") }}
+    <section id="{{ lower .Title }}">
+    <header>{{ .Title }}</header>
+    {{ range where .Pages "Params.pin" true }}
+        {{ partial ( print "cv/" (lower $seq.Title) ) . }}
     {{ end }}
-</section>
-<section id="education">
-    <header>Education</header>
-    {{ range .Site.Data.education }}
-    {{ partial "cv/course.html" . }}
-    {{ end }}
-</section>
-<section id="internships">
-    <header>Internships</header>
-    {{ range .Site.Data.internships }}
-    {{ partial "cv/internship.html" . }}
-    {{ end }}
-</section>
-<section id="responsibilities">
-    <header>Responsibilities</header>
-    {{ range .Site.Data.responsibilities }}
-    {{ partial "cv/responsibility.html" . }}
-    {{ end }}
-</section>
+    </section>
+{{ end }}
+
 <section id="skills">
     <ul>
-        {{ range .Site.Data.technologies }}
-            <li>{{.}}</li>
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
         {{ end }}
     </ul>
 </section>

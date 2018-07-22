@@ -1,0 +1,8 @@
+<article class="card">
+    <header>
+        {{ .Title }}
+        {{ partial "cv/timespan.html" . }}
+    </header>
+    <div>{{ .Params.Institution }}</div>
+    <div class="card-content">{{ .Content }}</div>
+</article>

@@ -1,13 +1,12 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
+organisation:
 draft: true
 pin: true
+start:
+end: now
 tags: []
-demo: ""
-source: ""
-# last two are used in schema.org/SoftwareSourceCode
-language: "Python"
-runtime: "Python 3.6"
 ---
 
+goal

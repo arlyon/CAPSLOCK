@@ -1,5 +1,5 @@
 <span class="date">
-    {{ with .start }}{{.}}{{end}}
-    {{ if (and (isset . "start") (isset . "end"))}}-{{end}}
-    {{with .end}}{{.}}{{end}}
+    {{ with .Params.start }}{{ . }}{{ end }}
+    {{ if (and (isset .Params "start") (isset .Params "end")) }}-{{ end }}
+    {{ with .Params.end }}{{ . }}{{ end }}
 </span>

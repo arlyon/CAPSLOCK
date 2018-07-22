@@ -20,25 +20,27 @@
     <link rel="stylesheet" href="{{ $styles.Permalink }}" />
 
     {{ if not .IsPage }}
-        {{with .Paginator}}{{with .Next}}<link rel="next" href="{{.URL}}"/>{{end}}{{end}}
-        {{with .Paginator}}{{with .Prev}}<link rel="prev" href="{{.URL}}"/>{{end}}{{end}}
+        {{ with .Paginator }}{{ with .Next }}<link rel="next" href="{{ .URL }}"/>{{ end }}{{ end }}
+        {{ with .Paginator }}{{ with .Prev }}<link rel="prev" href="{{ .URL }}"/>{{ end }}{{ end }}
     {{ else }}
-        {{with .Next}}<link rel="next" href="{{.URL}}" />{{end}}
-        {{with .Prev}}<link rel="prev" href="{{.URL}}" />{{end}}
+        {{ with .Next }}<link rel="next" href="{{ .URL }}" />{{ end }}
+        {{ with .Prev }}<link rel="prev" href="{{ .URL }}" />{{ end }}
     {{ end }}
 
-    {{ if gt (len .Site.Params.fontawesome_sets) 0 }}
-        <script defer src="/js/fontawesome.min.js"></script>
-        {{ range .Site.Params.fontawesome_sets }}
-        <script defer src="/js/fa-{{.}}.min.js"></script>
+    {{ with .Site.Params.fontawesome_sets }}
+        {{ if gt (len .) 0 }}
+            <script defer src="/js/fontawesome.min.js"></script>
+            {{ range . }}
+                <script defer src="/js/fa-{{.}}.min.js"></script>
+            {{ end }}
         {{ end }}
     {{ end }}
 </head>
 <body>
-{{ if not (eq .Site.Params.cv true) }}{{ partial "frame/header.html" . }}{{ end }}
-{{ block "main" . }}{{ end }}
-{{ if not (eq .Site.Params.cv true) }}{{ partial "frame/footer.html" . }}{{end}}
-{{ partial "components/ga.html" . }}
-{{ partial "components/sw.html" . }}
+    {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/header.html" . }}{{ end }}
+    {{ block "main" . }}{{ end }}
+    {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/footer.html" . }}{{end}}
+    {{ partial "components/ga.html" . }}
+    {{ partial "components/sw.html" . }}
 </body>
 </html>
