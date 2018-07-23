@@ -1,18 +1,20 @@
 @import "../variables.scss";
 
+$card-content-size: 0.8;
+
 article.card {
   border-left: 3px solid var(--foreground, $foreground);
   margin: 1em 0;
   padding-left: 1em;
-  > img {
-    width: 100%;
-  }
+  font-size: 1em * $card-content-size;
+
   > header {
     margin-bottom: 0.1em;
+    font-size: 1em / $card-content-size;
     font-weight: $font-weight-bold;
   }
+
   > .card-content {
-    font-size: 0.8em;
     > *:first-child {
       margin-top: 0;
     }
@@ -20,13 +22,19 @@ article.card {
       margin-bottom: 0;
     }
   }
-  > ul {
+
+  .date {
     font-size: 0.8em;
+    opacity: 0.6;
   }
+
   ul {
-    padding-left: 1em;
+    padding-left: 0;
+    list-style: none;
     li {
-      list-style: '-';
+      &:before {
+        content: "- ";
+      }
       padding-left: 0.5em;
     }
     &.buttons {
@@ -35,14 +43,27 @@ article.card {
       li {
         display: inline;
         padding: 0;
+        white-space: nowrap;
+        &:before {
+          content: none;
+        }
       }
     }
   }
-  .date {
-    font-size: 0.8em;
-    opacity: 0.6;
+}
+
+article.summary {
+  margin-bottom: 2em;
+  > header {
+    margin-bottom: 1em;
   }
-  a {
-    color: inherit;
+}
+
+article.cv-item {
+  > header {
+    display: block;
+    * {
+      display: inline-block;
+    }
   }
 }

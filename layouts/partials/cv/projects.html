@@ -1,8 +1,5 @@
-<article class="card">
-    {{ with .Params.Img }}
-    <img src="assets/projects/{{ . }}">
-    {{ end }}
-    <header>{{ .Params.Title }}</header>
+<article class="card cv-item">
+    <header><h3>{{ .Params.Title }}</h3></header>
     <div class="card-content">{{ .Content }}</div>
     <ul class="buttons">
         {{ with .Params.Demo }}<li class="button"><a href="{{ . }}">Demo</a></li>{{end}}

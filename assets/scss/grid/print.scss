@@ -1,0 +1,19 @@
+@media print {
+  @Supports (grid-area: auto) {
+    main.cv-overview {
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "information skills"
+        "letter      letter"
+        "education   projects"
+        "internships responsibilities";
+    }
+  }
+
+  #information {
+    a {
+      white-space: nowrap;
+    }
+  }
+}

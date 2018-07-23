@@ -18,17 +18,17 @@
 
 {{ range $seq := where .Site.Sections "Title" "in" (apply .Site.Params.cv.sections "title" ".") }}
     <section id="{{ lower .Title }}">
-    <header>{{ .Title }}</header>
-    {{ range where .Pages "Params.pin" true }}
-        {{ partial ( print "cv/" (lower $seq.Title) ) . }}
-    {{ end }}
+        <header><h2>{{ .Title }}</h2></header>
+        {{ range where .Pages "Params.pin" true }}
+            {{ partial ( print "cv/" (lower $seq.Title) ) . }}
+        {{ end }}
     </section>
 {{ end }}
 
 <section id="skills">
     <ul>
         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+            <li><a class="tag" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
         {{ end }}
     </ul>
 </section>

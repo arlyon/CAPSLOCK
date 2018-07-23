@@ -11,10 +11,10 @@
     {{ if (fileExists "assets/scss/custom.scss") }}
         {{ $custom := resources.Get "scss/custom.scss" | toCSS }}
         {{ $inline := slice $critical $custom | resources.Concat "inline.css" }}
-        <style type="text/css">{{ $inline.Content | safeCSS }}</style>
+        <style>{{ $inline.Content | safeCSS }}</style>
     {{ else }}
         {{ $inline := $critical }}
-        <style type="text/css">{{ $inline.Content | safeCSS }}</style>
+        <style>{{ $inline.Content | safeCSS }}</style>
     {{ end }}
     {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" />

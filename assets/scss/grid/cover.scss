@@ -3,12 +3,11 @@
     main.cover.cv-overview {
       grid-template-rows: auto auto auto auto auto;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: 
-
-
-
-
-                           "information skills" "letter      letter" "cover       cover" "education   projects" "internships responsibilities";
+      grid-template-areas:
+        "information skills"
+        "letter      letter"
+        "education   projects"
+        "internships responsibilities";
     }
   }
 
@@ -16,14 +15,14 @@
     main.cover.cv-overview {
       grid-template-columns: 1fr repeat(2, minmax(300px, 400px)) 1fr;
       grid-template-rows: minmax(2em, 1fr) repeat(5, auto) minmax(2em, 1fr);
-      grid-template-areas: 
-
-
-
-
-
-
-                           ". .                .           ." ". information      information ." ". letter           letter      ." ". education        projects    ." ". responsibilities internships ." ". skills           skills      ." ". .                .           .";
+      grid-template-areas:
+        ". .                .           ."
+        ". information      information ."
+        ". letter           letter      ."
+        ". education        projects    ."
+        ". responsibilities internships ."
+        ". skills           skills      ."
+        ". .                .           .";
     }
   }
 
@@ -31,13 +30,12 @@
     main.cover.cv-overview {
       grid-template-columns: 1fr 300px minmax(40px, 100px) minmax(300px, 400px) minmax(300px, 400px) minmax(40px, 100px) minmax(300px, 400px) 1fr;
       grid-template-rows: 1fr repeat(3, auto) 1fr;
-      grid-template-areas: 
-
-
-
-
-                           ". .           . .                .           . .      ." ". information . education        projects    . letter ." ". skills      . education        projects    . letter ." ". skills      . responsibilities internships . letter ." ". .           . .                .           . .      .";
-
+      grid-template-areas:
+        ". .           . .                .           . .      ."
+        ". information . education        projects    . letter ."
+        ". skills      . education        projects    . letter ."
+        ". skills      . responsibilities internships . letter ."
+        ". .           . .                .           . .      .";
       > #skills {
         display: block;
       }
