@@ -1,6 +1,7 @@
 @media print {
   @Supports (grid-area: auto) {
     main.cv-overview {
+      display: grid;
       grid-template-rows: auto auto auto auto auto;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
