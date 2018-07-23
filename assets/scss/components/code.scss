@@ -2,28 +2,17 @@
 
 pre {
   background-color: transparent !important;
-  margin: 1.5em 0 0 0;
-  padding: 0 0 0 1em;
-  border-left: 2px solid var(--forground, $foreground);
-  border-right: 2px solid var(--forground, $foreground);
-  overflow-x: scroll;
+  margin: 2em 2em;
   code {
     background-color: transparent;
     border-width: 0;
     padding: 0;
+    font-family: $font-family;
   }
 }
 
-code {
-  border: 1px solid var(--foreground-01, rgba($foreground, 0.1));
-  color: var(--foreground-08, rgba($foreground, 0.8));
-  background-color: var(--foreground-005, rgba($foreground, 0.05));
-  padding: 0 0.3em;
-  font-weight: $font-weight-bold;
-}
-
 div.gist-container {
-  margin: 2em 0;
+  margin-top: 2em;
 }
 
 div.gist > div.gist-file {
