@@ -1,8 +1,9 @@
 @import "../variables.scss";
 
+// plain code blocks
 pre {
   background-color: transparent !important;
-  margin: 2em 2em;
+  margin: 2em;
   code {
     background-color: transparent;
     border-width: 0;
@@ -11,36 +12,184 @@ pre {
   }
 }
 
-div.gist-container {
+// syntax highlighted code
+div.highlight {
+  margin: 2em 0;
+  > .chroma {
+    > table {
+    }
+    tr {
+      border-width: 0;
+      td {
+        line-height: initial;
+        pre {
+          margin: 0;
+        }
+      }
+    }
+    .lntd {
+      vertical-align: top;
+      padding: 1px 10px;
+      margin: 0;
+      border: 0;
+    }
+    .lntable {
+      border-spacing: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      width: auto;
+      overflow: auto;
+      display: block;
+    }
+    .k {
+      font-weight: bold
+    }
+    .kc {
+      font-weight: bold
+    }
+    .kd {
+      font-weight: bold
+    }
+    .kn {
+      font-weight: bold
+    }
+    .kr {
+      font-weight: bold
+    }
+    .nc {
+      font-weight: bold
+    }
+    .ni {
+      font-weight: bold
+    }
+    .ne {
+      font-weight: bold
+    }
+    .nn {
+      font-weight: bold
+    }
+    .nt {
+      font-weight: bold
+    }
+    .s {
+      font-style: italic
+    }
+    .sa {
+      font-style: italic
+    }
+    .sb {
+      font-style: italic
+    }
+    .sc {
+      font-style: italic
+    }
+    .dl {
+      font-style: italic
+    }
+    .s1 {
+      font-style: italic
+    }
+    .sr {
+      font-style: italic
+    }
+    .sx {
+      font-style: italic
+    }
+    .si {
+      font-weight: bold;
+      font-style: italic
+    }
+    .sh {
+      font-style: italic
+    }
+    .se {
+      font-weight: bold;
+      font-style: italic
+    }
+    .s2 {
+      font-style: italic
+    }
+    .sd {
+      font-style: italic
+    }
+    .gh {
+      font-weight: bold
+    }
+    .ge {
+      font-style: italic
+    }
+    .cs {
+      font-style: italic
+    }
+    .c1 {
+      font-style: italic
+    }
+    .ss {
+      font-style: italic
+    }
+    .ow {
+      font-weight: bold
+    }
+    .c {
+      font-style: italic
+    }
+    .ch {
+      font-style: italic
+    }
+    .cm {
+      font-style: italic
+    }
+    .gu {
+      font-weight: bold
+    }
+    .gs {
+      font-weight: bold
+    }
+    .gp {
+      font-weight: bold
+    }
+  }
+}
+
+// gist
+.gist-container {
   margin-top: 2em;
 }
 
-div.gist > div.gist-file {
-  border-width: 0 !important;
-  padding: 1em;
-  margin-bottom: 0;
-  > .gist-data {
-    border-bottom-width: 0 !important;
-    background-color: transparent;
-    .highlight {
+.gist {
+  font-size: 1em;
+  > .gist-file {
+    margin: 0 !important;
+    > .gist-data {
+      border-bottom-width: 0 !important;
       background-color: transparent;
-    }
-    table.highlight td, span {
-      font-family: $font-family, monospace !important;
-      font-weight: $font-weight-regular;
-      color: var(--foreground, $foreground) !important;
-      &.pl-k {
-        font-weight: $font-weight-bold;
-        color: var(--foreground, $foreground);
+      table.highlight {
+        background-color: transparent;
+        font-size: 1em;
+        .blob-num, .blob-code {
+          font-size: 1em;
+          line-height: 1.5em;
+        }
+        td, span {
+          font-family: $font-family, monospace !important;
+          font-weight: $font-weight-regular;
+          color: var(--foreground, $foreground) !important;
+          &.pl-k {
+            font-weight: $font-weight-bold;
+            color: var(--foreground, $foreground);
+          }
+        }
       }
     }
-  }
-  > .gist-meta {
-    background-color: transparent;
-    color: var(--foreground, $foreground);
-    font-family: $font-family, monospace;
-    a {
+    > .gist-meta {
+      font-size: 1em;
+      background-color: transparent;
       color: var(--foreground, $foreground);
+      font-family: $font-family, monospace;
+      a {
+        color: var(--foreground, $foreground);
+      }
     }
   }
 }

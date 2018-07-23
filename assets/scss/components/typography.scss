@@ -85,13 +85,13 @@ h6 {
 
 table {
   margin-top: $leading;
-  border-spacing: 0px;
+  border-spacing: 0;
   border-collapse: collapse;
 }
 
 td, th {
   padding: 0;
-  line-height: $baseline-height * $scale / 4 * 1rem;
+  line-height: $baseline-height * $scale * 1rem;
 }
 
 code {
