@@ -148,9 +148,8 @@ table:not(.highlight):not(.lntable) {
 .draft {
   color: red;
   background-color: transparent;
-  margin-left: 0.5em;
   text-decoration: none;
   padding: 0 0.2em;
-  border: 1px solid red;
+  border: 0.1em solid red;
   font-weight: $font-weight-bold;
 }

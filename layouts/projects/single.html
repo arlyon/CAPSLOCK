@@ -12,11 +12,16 @@
     {{ with .Params.Language }}<meta itemtype="programmingLanguage" content="{{ . }}" />{{ end }}
     {{ with .Params.Runtime }}<meta itemtype="runtimePlatform" content="{{ . }}" />{{ end }}
     <header>
-        <h1 itemprop="name">{{ .Title }}{{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}</h1>
+        <h1 itemprop="name">
+            {{ .Title }}
+            {{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}
+        </h1>
+        {{ if (or .Params.demo .Params.source) }}
         <h1 class="right">
             {{with .Params.demo}}<a href="{{.}}">demo</a>{{end}}
             {{with .Params.source}}<a href="{{.}}">source</a>{{end}}
         </h1>
+        {{ end }}
     </header>
     {{ partial "components/readtime.html" . }}
     <div itemprop="text">{{ .Content }}</div>
