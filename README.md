@@ -4,19 +4,33 @@ CAPSLOCK is a simple hugo theme for blog-like websites. It allows for good flexi
 having to jump behind and edit the theme directly, and supports a few extra archetypes out of 
 the box such as gists and projects. To see an example site, visit https://github.com/arlyon/arlyon.co
 
-![Example Picture](image.png)
+### Blog Mode
+
+![Blog Mode](image.png)
+
+### CV Mode
+
+![CV Mode](image2.png)
 
 ## Features
 
 - Draft Indicator.
 - Tags and Categories.
-- Gist Archetype.
-- Project Archetype.
+- Archetypes:
+    - articles
+    - gists
+    - projects
+    - employment
+    - education
+    - responsibility
+    - cover letter
 - Customizable fore- and background colors.
 - Optional read time.
 - Optional (and flexible) font awesome integration.
 - Netlify HTTP/2 headers for css
 - CV Mode
+    - full tagging to list technologies
+    - optional "pinning" so that not everything is on the dashboard
 - Web Manifest and Favicon Support
 - Service worker and offline mode
 
@@ -42,16 +56,33 @@ theme = "CAPSLOCK"
 sectionPagesMenu = "main"
 pygmentsOptions = "linenos=inline"
 pygmentsStyle = "bw"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
 
 [params]
+    author = "Alexander Lyon"
+    description = "A resume."
+    foreground = "#000"
     show_read_time = true
     show_contact_in_head = true
     show_contact_in_footer = true
     foreground = "#000"
-    cv = false
     service_worker = true
     fontawesome_sets = ["brands", "solid"]
     copyright = "no monkeys (or typewriters) were harmed in the making of this site"
+
+[params.cv]
+    enabled = true
+    sections = ["projects", "employment", "education", "responsibilities"]
+
+[params.cv.data]
+    location = "Edinburgh"
+    site = "https://blog.arlyon.co"
+    email = "arlyon@me.com"
+    github = "arlyon"
+    gitlab = "git.arlyon.co"
+    currently = "Comp.Eng @ Heriot Watt"
+    blurb = "A tech and open source enthusiast."
 
 [[params.contact]]
     icon_type = "fab"
@@ -65,19 +96,29 @@ pygmentsStyle = "bw"
     link = "https://www.twitter.com/_arlyon/"
     text = "TW"
 
-[[params.contact]]
-    icon_type = "fas"
-    icon_name = "envelope"
-    link = "mailto:arlyon@me.com"
-    text = "@"
+[outputs]
+    home = [ "HTML", "RSS", "HEADERS" ]
+    page = [ "HTML" ]
+
+[mediaTypes]
+    [mediaTypes."text/netlify"]
+    suffixes = [""]
+    delimiter = ""
+
+[outputFormats]
+    [outputFormats.HEADERS]
+    mediatype = "text/netlify"
+    baseName = "_headers"
+    isPlainText = true
+    notAlternative = true
 ```
 
 ### CV Mode
 
 The theme supports "CV mode" that takes a set of data and displays it. The data is split into categories, an example of
 which you can find [here](https://github.com/arlyon/resume). It is unique in that it is possible to write cover letters
-that can be inserted dynamically into the document alongside the CV such that it is possible to write cover letter documents
-for each potential application. 
+that can be inserted dynamically into the document alongside the CV. This means that it is possible to write cover letter
+documents for each potential application.
 
 ### Favicons
 
