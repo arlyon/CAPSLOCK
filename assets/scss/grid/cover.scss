@@ -39,6 +39,9 @@
       > #skills {
         display: block;
       }
+      > #letter > *:first-child {
+        margin: 0;
+      }
     }
   }
 }

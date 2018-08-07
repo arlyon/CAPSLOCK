@@ -99,9 +99,6 @@ body {
           }
         }
       }
-      > #letter > *:first-child {
-        margin: 0;
-      }
     }
   }
 
@@ -152,4 +149,9 @@ table:not(.highlight):not(.lntable) {
   padding: 0 0.2em;
   border: 0.1em solid red;
   font-weight: $font-weight-bold;
+}
+
+img#signature {
+  max-height: 2.5em;
+  margin-top: 1em;
 }
