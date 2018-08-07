@@ -8,9 +8,12 @@ or the specific cv view associated with its section if cv mode is enabled.
 
 {{ if $cv }}
     {{ $cv_home := (and $cv (eq .Kind "home")) }}
+    {{ $cv_section := (and $cv (eq .Kind "section")) }}
     <main role="main" {{ if $cv_home }} class="cv-overview" {{ end }}>
         {{ if $cv_home }}
             {{ partial "cv.html" . }}
+        {{ else if $cv_section }}
+
         {{ else }}
             <header><h2 style="text-align: center">experience with <span>{{ .Title }}</span></h2></header>
             <section id="list">
