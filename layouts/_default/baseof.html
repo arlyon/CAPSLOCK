@@ -1,4 +1,4 @@
-{{if (where (readDir "/layouts/partials/") "Name" "art.html")}}{{ partial "art.html" . }}{{end}}
+{{if (fileExists "/layouts/partials/art.html")}}{{ partial "art.html" . }}{{end}}
 {{ "<!-- Doctype HTML5 -->" | safeHTML }}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
