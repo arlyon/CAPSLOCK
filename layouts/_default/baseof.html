@@ -15,10 +15,10 @@
     {{ if (fileExists "assets/scss/custom.scss") }}
         {{ $custom := resources.Get "scss/custom.scss" }}
         {{ $styles := slice ($sass | toCSS) ($custom | toCSS) | resources.Concat "style.css" | minify }}
-        <link rel="stylesheet" href="{{ $styles.Permalink }}" />
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ else }}
         {{ $styles := $sass | toCSS | minify }}
-        <link rel="stylesheet" href="{{ $styles.Permalink }}" />
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ end }}
 
     {{ if not .IsPage }}

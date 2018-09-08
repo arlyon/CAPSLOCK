@@ -1,7 +1,7 @@
 <section id="events">
 {{ $time := resources.Get "calendar-alt-light.svg" }}
 
-<img style="height: 4em; display:block; margin: 0 auto" src="{{ $time.Permalink }}">
+<img style="height: 4em; display:block; margin: 0 auto" src="{{ $time.RelPermalink }}">
 <h2>Upcoming Events</h2>
 {{ range where .Site.Sections "Title" "eq" "Events" }}
 {{ range where .Pages "Params.date" "ge" now }}
