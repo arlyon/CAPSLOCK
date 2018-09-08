@@ -1,22 +1,30 @@
+{{/*
+This partial gets all the pages belonging to the "event"
+archetype and displays them depending on whether they are
+currently happening, happening in the future, or have happened.
+*/}}
 <section id="events">
-{{ $time := resources.Get "calendar-alt-light.svg" }}
+{{ $events := (index (where .Site.Sections "Title" "eq" "Events") 0).Pages.ByDate }}
 
-<img style="height: 4em; display:block; margin: 0 auto" src="{{ $time.RelPermalink }}">
-<h2>Upcoming Events</h2>
-{{ range where .Site.Sections "Title" "eq" "Events" }}
-{{ range where .Pages "Params.date" "ge" now }}
+<img style="height: 4em; display:block; margin: 0 auto" src="{{ (resources.Get "calendar-alt-light.svg").RelPermalink }}">
+<h2>Today</h2>
+{{ range (where (where $events "Params.date.YearDay" "eq" now.YearDay) "Params.date.Year" "eq" now.Year) }}
     {{ .Render "summary" }}
 {{ else }}
-<p>None</p>
+    <p>Nothing</p>
 {{ end }}
-{{end}}
+
+<h2>Upcoming Events</h2>
+{{ range (where (where $events "Params.date.YearDay" "gt" now.YearDay) "Params.date.Year" "ge" now.Year) }}
+    {{ .Render "summary" }}
+{{ else }}
+    <p>None</p>
+{{ end }}
 
 <h2>Past Events</h2>
-{{ range where .Site.Sections "Title" "eq" "Events" }}
-{{ range where .Pages "Params.date" "lt" now }}
+{{ range (where (where $events.Reverse "Params.date.YearDay" "lt" now.YearDay) "Params.date.Year" "le" now.Year) }}
     {{ .Render "summary" }}
 {{ else }}
-<p>None</p>
+    <p>None</p>
 {{ end }}
-{{end}}
 </section>
