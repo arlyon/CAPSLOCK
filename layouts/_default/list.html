@@ -4,39 +4,21 @@ or the specific cv view associated with its section if cv mode is enabled.
 */}}
 {{ define "main" }}
 
-{{ $cv := .Site.Params.cv.enabled }}
+<main role="main">
+    {{ with .Content }}<section id="blurb">{{ . }}</section>{{ end }}
+    {{ if .IsHome }}
+        {{ partial "events.html" . }}
+    {{ end }}
 
-{{ if $cv }}
-    {{ $cv_home := (and $cv (eq .Kind "home")) }}
-    {{ $cv_section := (and $cv (eq .Kind "section")) }}
-    <main role="main" {{ if $cv_home }} class="cv-overview" {{ end }}>
-        {{ if $cv_home }}
-            {{ partial "cv.html" . }}
-        {{ else if $cv_section }}
+    <section id="list">
+        {{ $news := resources.Get "newspaper-light.svg" }}
+        <img style="height: 4em; display:block; margin: 0 auto" src="{{ $news.Permalink }}">
+        <h2>Articles</h2>
+        {{ range where .Paginator.Pages "Section" "ne" "events" }}
+            {{ .Render "summary" }}
+        {{ end }}
+    </section>
+    {{ partial "components/pagination.html" . }}
+</main>
 
-        {{ else }}
-            <header><h2 style="text-align: center">experience with <span>{{ .Title }}</span></h2></header>
-            <section id="list">
-                {{ range .Paginator.Pages }}
-                    {{ if ne .Section "coverletters" }}
-                        {{ partial ( print "cv/" (lower .Section) ) . }}
-                    {{ else }}
-                        {{ partial "summary.html" . }}
-                    {{ end }}
-                {{ end }}
-            </section>
-            {{ partial "components/pagination.html" . }}
-        {{end}}
-    </main>
-{{ else }}
-    <main role="main">
-        {{ with .Content }}<section id="blurb">{{ . }}</section>{{ end }}
-        <section id="list">
-            {{ range .Paginator.Pages }}
-                {{ partial "summary.html" . }}
-            {{ end }}
-        </section>
-        {{ partial "components/pagination.html" . }}
-    </main>
-{{ end }}
 {{ end }}

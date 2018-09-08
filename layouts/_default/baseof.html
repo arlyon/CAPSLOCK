@@ -7,17 +7,19 @@
 
     {{ partial "frame/meta.html" . }}
 
-    {{ $critical := resources.Get "scss/critical.scss" | toCSS }}
+    {{ $template := resources.Get "scss/critical.scss" }}
+    {{ $critical := $template | resources.ExecuteAsTemplate "critical.scss" . | toCSS | minify }}
+    <style>{{ $critical.Content | safeCSS }}</style>
+
+    {{ $sass := resources.Get "scss/style.scss" }}
     {{ if (fileExists "assets/scss/custom.scss") }}
-        {{ $custom := resources.Get "scss/custom.scss" | toCSS }}
-        {{ $inline := slice $critical $custom | resources.Concat "inline.css" }}
-        <style>{{ $inline.Content | safeCSS }}</style>
+        {{ $custom := resources.Get "scss/custom.scss" }}
+        {{ $styles := slice ($sass | toCSS) ($custom | toCSS) | resources.Concat "style.css" | minify }}
+        <link rel="stylesheet" href="{{ $styles.Permalink }}" />
     {{ else }}
-        {{ $inline := $critical }}
-        <style>{{ $inline.Content | safeCSS }}</style>
+        {{ $styles := $sass | toCSS | minify }}
+        <link rel="stylesheet" href="{{ $styles.Permalink }}" />
     {{ end }}
-    {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-    <link rel="stylesheet" href="{{ $styles.Permalink }}" />
 
     {{ if not .IsPage }}
         {{ with .Paginator }}{{ with .Next }}<link rel="next" href="{{ .URL }}"/>{{ end }}{{ end }}
