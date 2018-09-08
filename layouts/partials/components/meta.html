@@ -1,4 +1,4 @@
 <meta itemprop="isFamilyFriendly" content="true" />
-<meta itemprop="url" content="{{ .Permalink }}" />
+<meta itemprop="url" content="{{ .RelPermalink }}" />
 {{ with .ReadingTime }}<meta itemprop="timeRequired" content="P{{.}}M" />{{ end }}
 {{ with .Params.Tags }}<meta itemprop="keywords" content="{{ delimit . ", " }}" />{{ end }}

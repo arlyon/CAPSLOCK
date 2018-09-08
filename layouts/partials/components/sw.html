@@ -45,7 +45,7 @@
          * Register Service Worker
          */
         navigator.serviceWorker
-            .register('{{ $sw.Permalink }}', {scope: '/'})
+            .register('{{ $sw.RelPermalink }}', {scope: '/'})
             .then(() => {
                 console.log('Service Worker Registered');
             });

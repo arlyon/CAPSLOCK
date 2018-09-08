@@ -9,12 +9,12 @@
 
     {{ $critical := resources.Get "scss/critical.scss" | toCSS }}
     {{ if (fileExists "assets/scss/custom.scss") }}
-        {{ $custom := resources.Get "scss/custom.scss" | toCSS }}
-        {{ $inline := slice $critical $custom | resources.Concat "inline.css" }}
-        <style>{{ $inline.Content | safeCSS }}</style>
+        {{ $custom := resources.Get "scss/custom.scss" }}
+        {{ $styles := slice ($sass | toCSS) ($custom | toCSS) | resources.Concat "style.css" | minify }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ else }}
-        {{ $inline := $critical }}
-        <style>{{ $inline.Content | safeCSS }}</style>
+        {{ $styles := $sass | toCSS | minify }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ end }}
     {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" />
