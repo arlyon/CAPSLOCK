@@ -6,7 +6,7 @@ currently happening, happening in the future, or have happened.
 <section id="events">
 {{ $events := (index (where .Site.Sections "Title" "eq" "Events") 0).Pages.ByDate }}
 
-<img style="height: 4em; display:block; margin: 0 auto" src="{{ (resources.Get "calendar-alt-light.svg").RelPermalink }}">
+<img style="height: 4em; display:block; margin: 0 auto" src="/calendar.svg">
 <h2>Today</h2>
 {{ range (where (where $events "Params.date.YearDay" "eq" now.YearDay) "Params.date.Year" "eq" now.Year) }}
     {{ .Render "summary" }}

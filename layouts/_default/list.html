@@ -4,15 +4,14 @@ or the specific cv view associated with its section if cv mode is enabled.
 */}}
 {{ define "main" }}
 
-<main role="main">
+<main>
     {{ with .Content }}<section id="blurb">{{ . }}</section>{{ end }}
     {{ if .IsHome }}
         {{ partial "events.html" . }}
     {{ end }}
 
     <section id="list">
-        {{ $news := resources.Get "newspaper-light.svg" }}
-        <img style="height: 4em; display:block; margin: 0 auto" src="{{ $news.RelPermalink }}">
+        <img style="height: 4em; display:block; margin: 0 auto" src="/newspaper.svg">
         <h2>Articles</h2>
         {{ range where .Paginator.Pages "Section" "ne" "events" }}
             {{ .Render "summary" }}
