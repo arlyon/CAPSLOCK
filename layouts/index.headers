@@ -1,3 +1,18 @@
+{{/*
+This header file enforces some rules on the website.
+Additionally, it tries to HTTP2 push styles.
+*/}}
+
+{{ $sass := resources.Get "scss/style.scss" }}
+{{ if (fileExists "assets/scss/custom.scss") }}
+    {{ $custom := resources.Get "scss/custom.scss" }}
+    {{ $styles := slice ($sass | toCSS) ($custom | toCSS) | resources.Concat "style.css" | minify }}
+    Link: <{{ $styles.RelPermalink }}>; rel=preload; as=style
+{{ else }}
+    {{ $styles := $sass | toCSS | minify }}
+    Link: <{{ $styles.RelPermalink }}>; rel=preload; as=style
+{{ end }}
+
 /*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
@@ -5,5 +20,3 @@
   Referrer-Policy: same-origin
   Content-Security-Policy: default-src 'none'; manifest-src 'self'; connect-src 'self' fonts.gstatic.com; base-uri 'self'; block-all-mixed-content; font-src 'self' fonts.gstatic.com; frame-ancestors 'none'; frame-src asciinema.org; img-src 'self'; media-src 'none'; object-src 'none'; script-src 'self' 'unsafe-inline' www.google-analytics.com  asciinema.org gist.github.com ; style-src 'self' 'unsafe-inline' assets-cdn.github.com
 */
-  Link: <{{ "/css/style.css" | relURL }}>; rel=preload; as=style
-  {{ if (fileExists "/static/css/custom.css") }}Link: <{{ "/css/custom.css" | relURL }}>; rel=preload; as=style{{ end }}
