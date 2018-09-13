@@ -8,7 +8,7 @@
             <a href="{{ .RelPermalink }}" itemprop="name headline">{{ .Title }}</a>
             {{if .Params.Draft}}{{ partial "components/draft.html" . }}{{end}}
         </h3>
-        <time class="date right" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        <time class="date right" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "Jan 2, 2006" }} at {{ .Date.Format "15:04" }}</time>
     </header>
     <div class="card-content" itemprop="description">
         {{ if .Summary }}
@@ -16,9 +16,5 @@
         {{else}}
             <span>No Description</span>
         {{end}}
-
-        {{ if .Truncated }}
-            <a href="{{ .RelPermalink }}">Read More</a>
-        {{ end }}
     </div>
 </article>
