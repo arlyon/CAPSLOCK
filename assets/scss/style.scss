@@ -155,3 +155,15 @@ img#signature {
   max-height: 2.5em;
   margin-top: 1em;
 }
+
+pre {
+  overflow-x: scroll;
+  font-family: inherit;
+}
+
+p {
+  code {
+    font-family: inherit;
+    font-weight: 600;
+  }
+}
