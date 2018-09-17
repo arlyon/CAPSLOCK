@@ -33,7 +33,7 @@
         {{ if gt (len .) 0 }}
             <script defer src="/js/fontawesome.min.js"></script>
             {{ range . }}
-                <script defer src="/js/fa-{{.}}.min.js"></script>
+                <script defer src="/js/{{.}}.min.js"></script>
             {{ end }}
         {{ end }}
     {{ end }}
