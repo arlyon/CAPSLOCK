@@ -11,7 +11,7 @@ or the specific cv view associated with its section if cv mode is enabled.
     {{ end }}
 
     <section id="list">
-        <img class="symbol" alt="newspaper icon" src="/newspaper.svg">
+        <i class="fal fa-newspaper fa-4x symbol"></i>
         <h2>Articles</h2>
         {{ range where .Paginator.Pages "Section" "ne" "events" }}
             {{ .Render "summary" }}
