@@ -175,3 +175,9 @@ p {
   font-family: $font-family-mono;
   margin: 0.2em 0;
 }
+
+blockquote {
+  color: lighten($foreground, 50);
+  border-left: 3px solid lighten($foreground, 50);
+  padding-left: 1em;
+}
