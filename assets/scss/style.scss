@@ -169,6 +169,18 @@ img#signature {
   margin-top: 1em;
 }
 
+pre {
+  overflow-x: scroll;
+  font-family: inherit;
+}
+
+p {
+  code {
+    font-family: inherit;
+    font-weight: 600;
+  }
+}
+
 .symbol {
   display: block;
   margin: 0 auto
