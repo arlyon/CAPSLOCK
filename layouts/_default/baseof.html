@@ -1,4 +1,4 @@
-{{if (fileExists "/layouts/partials/art.html")}}{{ partial "art.html" . }}{{end}}
+{{if fileExists "/layouts/partials/art.html"}}{{ partial "art.html" . }}{{end}}
 {{ "<!-- Doctype HTML5 -->" | safeHTML }}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -37,11 +37,13 @@
             {{ end }}
         {{ end }}
     {{ end }}
+
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 <body>
-    {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/header.html" . }}{{ end }}
+    {{ partial "frame/header.html" . }}
     {{ block "main" . }}{{ end }}
-    {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/footer.html" . }}{{end}}
+    {{ partial "frame/footer.html" . }}
     {{ partial "components/ga.html" . }}
     {{ partial "components/sw.html" . }}
 </body>

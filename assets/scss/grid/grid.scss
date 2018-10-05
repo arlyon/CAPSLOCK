@@ -1,5 +1,5 @@
-@import 'cv.scss';
-@import 'cover.scss';
+@import 'cv';
+@import 'cover';
 
 @Supports (grid-area: auto) {
   main.cv-overview {

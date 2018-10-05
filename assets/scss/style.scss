@@ -6,6 +6,7 @@
 @import "components/article";
 @import "components/asciicast";
 @import "components/typography";
+@import "animation.scss";
 
 body {
   font-size: $font-size;
@@ -14,22 +15,45 @@ body {
   overflow-y: scroll;
 
   > header {
+    background-color: lighten($foreground, 10);
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+
+    > div.radar {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: url("/noisy_grid.png");
+
+      > div.sweep {
+        height: 100%;
+        animation-name: radar-sweep;
+        animation-timing-function: ease-in-out;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+
+        @include scrimGradient('to left', #9effa3);
+        background-size: 20em 100%;
+        background-repeat: no-repeat;
+        mix-blend-mode: overlay;
+      }
+    }
+
     > a {
+      text-align:center;
       margin: 0;
       width: 100%;
+      padding: 1em;
+      z-index: 1;
 
       @media screen and (min-width: 800px) {
-        margin: 4rem auto 1rem auto;
-        width: auto;
-        > h1 {
-          padding: 0.1em 0.4em !important;
-        }
+        margin: 4rem auto;
       }
 
-      > h1 {
-        text-align: center;
+      > * {
         margin: 0;
-        padding: 1em;
+        padding: 0;
       }
     }
   }
@@ -184,4 +208,42 @@ p {
 .symbol {
   display: block;
   margin: 0 auto
+}
+
+.telegram {
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+  color: rgba(50, 38, 4, 0.8);
+  padding: 4em 2em!important;
+  margin: 4em 1em;
+  transform: perspective(800px) rotateX(4deg) rotateY(0deg) rotateZ(0deg);
+  // box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
+
+  background: #e1bf8b url(/seamless_paper_texture.png);
+  background-clip: padding-box;
+  background-blend-mode: overlay;
+
+  border-style: solid;
+  border-width: 0 16px;
+  border-image: url("/circle.png") 16 round;
+
+  img {
+    mix-blend-mode: multiply;
+    filter: brightness(130%);
+    margin: 0 auto;
+    user-select: none;
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    color: rgba(168, 44, 40, 0.8);
+    mix-blend-mode: multiply;
+  }
+
+  a {
+    color: inherit;
+  }
 }

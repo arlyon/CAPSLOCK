@@ -1,8 +1,8 @@
-<header><a href="{{ "/" | relURL }}"><h1 {{ if .IsHome }}class="active"{{ end }}>{{ .Site.Title }}</h1></a></header>
-<nav>
-    {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-    <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.Identifier}}</a>
-    {{ end }}
-</nav>
+<header>
+    <a href="{{ "/" | relURL }}">
+        <h1 style="font-family: monospace">Barnton Quarry</h1>
+        <h2 style="margin-top: -0.2em">Restoration Project</h2>
+    </a>
+    <div class="radar"><div class="sweep"></div></div>
+</header>
 {{ if .Site.Params.show_contact_in_header }}{{ partial "frame/contact.html" . }}{{ end }}

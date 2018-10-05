@@ -1,13 +1,8 @@
-@import 'variables.scss';
-
-.active {
-  color: var(--background, $background);
-  background-color: var(--foreground, $foreground);
-}
+@import 'variables';
 
 a {
-  color: var(--foreground, $foreground);
-}
+   color: var(--foreground, $foreground);
+ }
 
 body {
   box-sizing: border-box;
@@ -19,14 +14,11 @@ body {
   font-weight: $font-weight-regular;
   font-family: $font-family, monospace;
 
-  > header, nav {
+  > header {
     a {
       text-decoration: none;
-      color: var(--foreground, $foreground);
+      color: var(--background, $background);
     }
-  }
-  > nav a {
-    text-transform: uppercase;
   }
 }
 
