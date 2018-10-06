@@ -9,42 +9,6 @@ or the specific cv view associated with its section if cv mode is enabled.
     {{ if .IsHome }}
         {{ partial "events.html" . }}
     {{ end }}
-
-    <section class="telegram">
-        <img src="/you.png">
-        <h1 style="margin-top: 0">Your Bunker needs You!</h1>
-        <p>
-            Although we receive financial assistance from Scotland’s Secret Bunker
-            this is only enough to buy some of the materials for the restoration.
-            The only way we can hope to achieve our vision of a World Class Cold
-            War museum in Edinburgh is through the hard work and dedication of
-            our volunteers. Every weekend a small band of helpers give up their
-            free time to clean, clear, build, floor, plaster and paint their way
-            towards a finished bunker.
-        </p>
-        <p>
-            As well as those keen to learn new skills, we welcome existing trades,
-            although we can skim a wall, its nothing compared to what an
-            experience#bf2525cc;d plasterer can achieve! So if you have a skill that
-            you’re willing to bring to the Quarry, we’re all ears!
-            Even if you think that your skill is too esoteric for our project - try
-            us! We have miles of fence line to repair, brick walls to rebuild, an
-            acre or two of land to tame, a carpark to tarmac,… you get the idea!
-            We also realise that physical graft is not everyone’s cup of tea.
-            There are plenty of other tasks to assist with such as web design,
-            historical research and funding & sponsorship. If these pique your
-            interest, let us know.
-        </p>
-        <h1>How Can my Business Help?</h1>
-        <p>
-            As well as volunteering, we always need materials to complete the
-            project. If you’re a merchant or a supplier and can help us out,
-            or, if you wish to talk to us about sponsorship, we would be happy
-            to talk to you about it.
-        </p>
-        <h2><a href="volunteer@barntonquarry.org.uk">volunteer@barntonquarry.org.uk</a></h2>
-    </section>
-
     <section id="list">
         <h2 style="margin-top: 0">Latest Intel from the SOC</h2>
         {{ range where .Paginator.Pages "Section" "ne" "events" }}
