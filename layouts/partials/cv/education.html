@@ -3,6 +3,6 @@
         <h3>{{ .Title }}</h3>
         <span class="date">{{ partial "cv/timespan.html" . }}</span>
     </header>
-    <div>{{ .Params.Institution }}</div>
+    <div class="institution">{{ .Params.Institution }}</div>
     <div class="card-content">{{ .Content }}</div>
 </article>
