@@ -15,7 +15,7 @@ article.card {
   }
 
   > .card-content {
-    > *:first-child {
+    > p, ul {
       margin-top: 0;
     }
     > *:last-child {

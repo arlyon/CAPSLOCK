@@ -5,7 +5,7 @@
         {{ with .Site.Params.cv.data.github }}<a href="https://github.com/{{ . }}">github</a>{{ end }}
         {{ with .Site.Params.cv.data.site }}<a href="{{ . }}">homepage</a>{{ end }}
     </div>
-    {{ with .Site.Params.cv.data.blurb }}<p>{{ . }}</p>{{ end }}
+    {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
 </section>
 
 {{ if .IsPage }}
@@ -27,8 +27,11 @@
 
 <section id="skills">
     <ul>
+        {{ $site := .Site }}
         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        {{ if ge (len $taxonomy) $site.Params.cv.min_for_tag }}
             <li><a class="tag" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+        {{ end }}
         {{ end }}
     </ul>
 </section>
