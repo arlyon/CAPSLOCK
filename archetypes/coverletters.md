@@ -2,7 +2,6 @@
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-tags: []
 ---
 
 Address to an individual. Delete the titles before you submit!
