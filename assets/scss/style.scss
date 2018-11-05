@@ -69,7 +69,7 @@ body {
       > #information, #skills {
         background-color: var(--foreground, $foreground);
         color: var(--background, $background);
-        font-family: $font-family-mono, monospace;
+        font-family: $font-family-mono;
         a {
           color: var(--background, $background);
         }
@@ -169,4 +169,8 @@ p {
     font-family: inherit;
     font-weight: $font-weight-bold;
   }
+}
+
+.institution {
+  font-family: $font-family-mono;
 }
