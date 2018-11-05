@@ -1,7 +1,9 @@
 <section id="information">
-    {{ with .Site.Params.Author }}<div>{{ . }}</div>{{ end }}
-    {{ with .Site.Params.cv.data.currently }}<div>{{ . }}</div>{{ end }}
-    <ul>
+    <div class="personal">
+        {{ with .Site.Params.Author }}<div>{{ . }}</div>{{ end }}
+        {{ with .Site.Params.cv.data.currently }}<div>{{ . }}</div>{{ end }}
+    </div>
+    <ul class="links">
         {{ with .Site.Params.cv.data.github }}<li><a href="https://github.com/{{ . }}">github</a></li>{{ end }}
         {{ with .Site.Params.cv.data.site }}<li><a href="{{ . }}">homepage</a></li>{{ end }}
         {{ if .IsPage }}

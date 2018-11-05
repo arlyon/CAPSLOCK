@@ -17,4 +17,16 @@
     }
     text-decoration: none;
   }
+  #information {
+    .personal {
+      font-weight: $font-weight-bold;
+      font-size: 1.5em;
+    }
+    > ul {
+      margin-top: 2em !important;
+    }
+  }
+  #letter {
+    page-break-after: always;
+  }
 }

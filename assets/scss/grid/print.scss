@@ -2,13 +2,14 @@
   @Supports (grid-area: auto) {
     main.cv-overview {
       display: grid;
-      grid-template-rows: auto auto auto auto auto;
+      grid-template-rows: auto auto auto auto auto auto;
       grid-template-columns: 50% 50%;
       grid-template-areas:
-        "information skills"
+        "information information"
         "letter      letter"
         "education   projects"
-        "internships responsibilities";
+        "internships responsibilities"
+        "skills skills";
     }
   }
 
