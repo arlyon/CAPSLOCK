@@ -5,7 +5,7 @@
     </div>
     <ul class="links">
         {{ with .Site.Params.cv.data.github }}<li><a href="https://github.com/{{ . }}">github</a></li>{{ end }}
-        {{ with .Site.Params.cv.data.site }}<li><a href="{{ . }}">homepage</a></li>{{ end }}
+        {{ with .Site.Params.cv.data.site }}<li><a href="{{ . }}">blog</a></li>{{ end }}
         {{ if .IsPage }}
             {{ with .Site.Params.cv.data.email }}<li><a href="mailto:{{ . }}">{{ . }}</a></li>{{ end }}
             {{ with .Site.Params.cv.data.phone }}<li><a href="tel:{{ . }}">{{ . }}</a></li>{{ end }}
