@@ -21,7 +21,7 @@ body {
   background-color: var(--background, $background);
   color: var(--foreground, $foreground);
   font-weight: $font-weight-regular;
-  font-family: $font-family, sans-serif;
+  font-family: $font-family;
 
   > header, nav {
     a {
