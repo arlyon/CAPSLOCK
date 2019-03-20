@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     {{ end }}
     {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-    <link rel="stylesheet" href="{{ $styles.Permalink }}" />
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 
     {{ if not .IsPage }}
         {{ with .Paginator }}{{ with .Next }}<link rel="next" href="{{ .URL }}"/>{{ end }}{{ end }}
