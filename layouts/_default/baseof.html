@@ -6,6 +6,7 @@
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
     {{ partial "frame/meta.html" . }}
+    {{ partial "components/ga.html" . }}
 
     {{ $sass := resources.Get "scss/critical.scss" | toCSS }}
     {{ if (fileExists "assets/scss/custom.scss") }}
@@ -40,7 +41,6 @@
     {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/header.html" . }}{{ end }}
     {{ block "main" . }}{{ end }}
     {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/footer.html" . }}{{end}}
-    {{ partial "components/ga.html" . }}
     {{ partial "components/sw.html" . }}
 </body>
 </html>
