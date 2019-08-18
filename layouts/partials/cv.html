@@ -33,11 +33,11 @@
 
 <section id="skills">
     <p>Skills</p>
-    <ul>
+    <ul class="skill-list">
         {{ $site := .Site }}
-        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        {{ if ge (len $taxonomy) $site.Params.cv.min_for_tag }}
-            <li><a class="tag" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+        {{ range $name, $taxonomy := .Site.Taxonomies.skills.ByCount }}
+        {{ if ge $taxonomy.Count $site.Params.cv.min_for_tag }}
+        <li><a class="tag" href="{{ $.Site.LanguagePrefix }}/skills/{{ $taxonomy.Name | urlize }}">{{$taxonomy.Name}}</a></li>
         {{ end }}
         {{ end }}
     </ul>

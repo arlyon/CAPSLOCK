@@ -3,7 +3,7 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 pin: true
-tags: []
+skills: []
 demo: ""
 source: ""
 # last two are used in schema.org/SoftwareSourceCode

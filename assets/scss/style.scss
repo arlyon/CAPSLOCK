@@ -60,9 +60,8 @@ body {
     }
 
     // tag list page styles
-    &.tags {
-      justify-content: center;
-      align-items: center;
+    &.skills {
+      margin: 2em auto;
     }
     // cv overview styles
     &.cv-overview {
@@ -98,16 +97,6 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        > ul {
-          padding: 0;
-          margin: 0.5em -0.5em 1.5em -0.5em;
-          display: flex;
-          flex-wrap: wrap;
-          > li {
-            list-style: none;
-            padding: 0 0.5em;
-          }
-        }
         > ol {
           padding-left: 0;
           margin: 0.5em 0;
@@ -199,4 +188,15 @@ blockquote {
   color: lighten($foreground, 50);
   border-left: 3px solid lighten($foreground, 50);
   padding-left: 1em;
+}
+
+ul.skill-list {
+  padding: 0;
+  margin: 0.5em -0.5em 1.5em -0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  > li {
+    list-style: none;
+    padding: 0 0.5em;
+  }
 }

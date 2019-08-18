@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main role="main" class="skills">
+    <section id="tags">
+        <header><h2>all skills</h2></header>
+        <ul class="skill-list">
+            {{ $data := .Data }}
+            {{ range $key, $skill := .Data.Terms.ByCount }}
+            <li><a class="tag" href="{{ $.Site.LanguagePrefix }}/{{ $data.Plural }}/{{ $skill.Name | urlize }}">{{$skill.Name}} ({{$skill.Count}})</a></li>
+            {{ end }}
+        </ul>
+    </section>
+</main>
+{{ end }}
