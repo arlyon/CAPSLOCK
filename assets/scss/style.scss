@@ -90,16 +90,36 @@ body {
         }
       }
       #skills {
+        *:first-child {
+          margin-top: 0;
+        }
+
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         > ul {
           padding: 0;
+          margin: 0.5em -0.5em 1.5em -0.5em;
           display: flex;
           flex-wrap: wrap;
           > li {
             list-style: none;
             padding: 0 0.5em;
+          }
+        }
+        > ol {
+          padding-left: 0;
+          margin: 0.5em 0;
+          font-size: 0.8em;
+          list-style: none;
+
+          li {
+            transition: opacity 1s ease;
+          }
+
+          time {
+            opacity: 0.6;
           }
         }
       }
