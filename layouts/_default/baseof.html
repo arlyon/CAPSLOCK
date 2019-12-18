@@ -28,13 +28,8 @@
         {{ with .Prev }}<link rel="prev" href="{{ .URL }}" />{{ end }}
     {{ end }}
 
-    {{ with .Site.Params.fontawesome_sets }}
-        {{ if gt (len .) 0 }}
-            <script defer src="/js/fontawesome.min.js"></script>
-            {{ range . }}
-                <script defer src="/js/fa-{{.}}.min.js"></script>
-            {{ end }}
-        {{ end }}
+    {{ with .Site.Params.fontawesome_kit }}
+        <script src="https://kit.fontawesome.com/{{ . }}.js" crossorigin="anonymous"></script>
     {{ end }}
 </head>
 <body>

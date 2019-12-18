@@ -1,10 +1,10 @@
 <div class="contact">
     {{ range .Site.Params.contact }}
-    <a aria-label="{{.icon_name}}" href="{{ .link }}">
-        <span class="fa-layers">
+    <a href="{{ .link }}">
+        <span class="fa-layers fa-fw">
             <i class="{{ .icon_type }} fa-{{ .icon_name }}"></i>
             {{ with .text }}
-            <span class="fa-layers-text" data-fa-transform="down-15 shrink-6">{{.}}</span>
+            <span class="fa-layers-text" data-fa-transform="down-15 shrink-10">{{.}}</span>
             {{ end }}
         </span>
     </a>
