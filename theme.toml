@@ -15,7 +15,7 @@ features = [
     "Customizable fore and background colors",
     "Optional read time",
     "Optional (and flexible) font awesome integration",
-    "Netlify HTTP/2 headers for css
+    "Netlify HTTP/2 headers for css",
 ]
 min_version = "0.45"
 
