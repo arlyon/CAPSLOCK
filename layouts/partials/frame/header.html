@@ -2,7 +2,7 @@
 <nav role="navigation">
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}
-    <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.URL}}</a>
+    <a {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}class="active"{{end}} href="{{.URL}}">{{.Identifier}}</a>
     {{ end }}
 </nav>
 {{ if .Site.Params.show_contact_in_header }}{{ partial "frame/contact.html" . }}{{ end }}

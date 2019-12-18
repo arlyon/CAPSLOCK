@@ -13,12 +13,32 @@ body {
   overflow-y: scroll;
 
   > header {
+    position: relative;
+    background-size: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/backdrop.jpeg");
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-size: cover;
+      background-image: url("/backdrop.jpeg");
+      background-position: center;
+      filter: blur(2em);
+      z-index: -1;
+      transform: scale(1.4);
+    }
+
     > a {
-      margin: 0;
+      margin: 10rem 0 0 0;
       width: 100%;
 
       @media screen and (min-width: 800px) {
-        margin: 4rem auto 1rem auto;
+        margin: 6rem auto 3rem auto;
         width: auto;
       }
 
@@ -26,19 +46,20 @@ body {
         text-align: center;
         padding: 0.1em 0.4em;
         margin: 0;
+        background-color: white;
       }
     }
   }
 
   > nav {
-    margin: 1em;
+    margin-top: 3em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
     > a {
       margin: 0 1em;
-      padding: 0.1em 0.4em;
+      padding: 0.1em 0.4em 0.2em;
       font-size: 1.5em;
     }
   }
@@ -50,9 +71,11 @@ body {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
+    padding: 0.5em;
 
     > section {
       padding: 1em;
+
       > header {
         font-size: 1.5em;
         font-weight: $font-weight-bold;
@@ -63,16 +86,19 @@ body {
     &.skills {
       margin: 2em auto;
     }
+
     // cv overview styles
     &.cv-overview {
       > #information, #skills {
         background-color: var(--foreground, $foreground);
         color: var(--background, $background);
         font-family: $font-family-mono;
+
         a {
           color: var(--background, $background);
         }
       }
+
       > #information {
         display: flex;
         flex-direction: column;
@@ -80,14 +106,17 @@ body {
         justify-content: center;
         padding: 2em 1em;
         text-align: center;
+
         ul {
           margin: 0;
           padding: 0;
+
           li {
             display: inline-block;
           }
         }
       }
+
       #skills {
         *:first-child {
           margin-top: 0;
@@ -97,6 +126,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
         > ol {
           padding-left: 0;
           margin: 0.5em 0;
@@ -118,12 +148,20 @@ body {
   > footer {
     text-align: center;
     padding: 2rem 0;
+
     .contact {
       font-size: 2em;
       margin: 0 0 1.5em 0;
+
       a {
         text-decoration: none;
+        margin: 0.3em;
       }
+    }
+
+    .copyright {
+      opacity: 0.4;
+      font-size: 0.8em;
     }
   }
 }
@@ -133,9 +171,11 @@ header {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
+
   // right in flex headers
   > .right {
     margin-left: auto !important;
@@ -146,8 +186,10 @@ header {
 table:not(.highlight):not(.lntable) {
   width: 75%;
   margin: 2em auto;
+
   tr {
     border-bottom: 1px solid var(--foreground-03, rgba($foreground, 0.3));
+
     td, th {
       padding: 0.5em 1em;
     }
@@ -168,6 +210,7 @@ img#signature {
   max-height: 3em;
   margin-top: 1em;
 }
+
 pre {
   overflow-x: scroll;
   font-family: inherit;

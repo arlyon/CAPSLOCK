@@ -1,24 +1,25 @@
 @import "../variables.scss";
 
-// plain code blocks
-pre {
-  background-color: transparent !important;
-  margin: 2em;
+code {
+  font-family: $font-family-mono;
 }
 
-code {
-  background-color: transparent;
-  font-family: $font-family-mono;
-  font-weight: $font-weight-regular;
-  border-width: 0;
-  padding: 0;
+// plain code blocks
+pre:not(.chroma) {
+  background-color: $code-color;
+  font-size: $code-size;
+  margin: 1em 0;
+  padding: 1em;
 }
 
 // syntax highlighted code
 div.highlight {
-  margin: 2em 0;
+  background-color: $code-color;
+  font-size: $code-size;
+  margin: 1em 0;
   > .chroma {
-    > table {
+    > table.lntable {
+      padding: 1em;
     }
     tr {
       border-width: 0;
@@ -44,75 +45,22 @@ div.highlight {
       overflow: auto;
       display: block;
     }
-    .k {
-      font-weight: bold
+    .k,.kc,.kd,.kn,.kr,.nc,.ni,.ne,.nn,.nt {
+      font-weight: 600
     }
-    .kc {
-      font-weight: bold
+    .c1 {
+      opacity: 0.3;
+      font-weight: 600;
     }
-    .kd {
-      font-weight: bold
-    }
-    .kn {
-      font-weight: bold
-    }
-    .kr {
-      font-weight: bold
-    }
-    .nc {
-      font-weight: bold
-    }
-    .ni {
-      font-weight: bold
-    }
-    .ne {
-      font-weight: bold
-    }
-    .nn {
-      font-weight: bold
-    }
-    .nt {
-      font-weight: bold
-    }
-    .s {
-      font-style: italic
-    }
-    .sa {
-      font-style: italic
-    }
-    .sb {
-      font-style: italic
-    }
-    .sc {
-      font-style: italic
-    }
-    .dl {
-      font-style: italic
-    }
-    .s1 {
-      font-style: italic
-    }
-    .sr {
-      font-style: italic
-    }
-    .sx {
+    .s,.sa,.sb,.sc,.dl,.s1,.sr,.sx,.sh,.s2,.sd {
       font-style: italic
     }
     .si {
       font-weight: bold;
       font-style: italic
     }
-    .sh {
-      font-style: italic
-    }
     .se {
       font-weight: bold;
-      font-style: italic
-    }
-    .s2 {
-      font-style: italic
-    }
-    .sd {
       font-style: italic
     }
     .gh {
@@ -122,9 +70,6 @@ div.highlight {
       font-style: italic
     }
     .cs {
-      font-style: italic
-    }
-    .c1 {
       font-style: italic
     }
     .ss {

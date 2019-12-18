@@ -4,11 +4,15 @@ $card-content-size: 0.8;
 
 article.card {
   border-left: 3px solid var(--foreground, $foreground);
-  margin: 1em 0;
+  margin: 2em 0;
   padding-left: 1em;
   font-size: 1em * $card-content-size;
 
   > header {
+    > h3 {
+      margin-top: -0.2em;
+    }
+    margin-bottom: 0.5em;
     font-size: 1em / $card-content-size;
     font-weight: $font-weight-bold;
   }
@@ -25,7 +29,7 @@ article.card {
 
   .date {
     font-size: 0.8em;
-    opacity: 0.6;
+    opacity: 0.4;
   }
 
   ul {
@@ -49,13 +53,6 @@ article.card {
         }
       }
     }
-  }
-}
-
-article.summary {
-  margin-bottom: 2em;
-  > header {
-    margin-bottom: 0.5em;
   }
 }
 

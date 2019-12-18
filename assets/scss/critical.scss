@@ -29,9 +29,6 @@ body {
       color: var(--foreground, $foreground);
     }
   }
-  > nav a {
-    text-transform: uppercase;
-  }
 }
 
 *, *:before, *:after {
