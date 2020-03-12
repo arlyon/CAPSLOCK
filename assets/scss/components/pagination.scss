@@ -11,12 +11,12 @@ ul.pagination {
     padding: 0.2em 0.6em;
     &.active {
       >a {
-        color: var(--background, $background);
+        color: $background;
       }
     }
     &.disabled {
       >a {
-        color: var(--foreground-03, rgba($foreground, 0.3));
+        color: rgba($foreground, 0.3);
         text-decoration: none;
         pointer-events: none;
         cursor: default;

@@ -175,21 +175,8 @@ CVs to specific employers.
 - To set the "blurb" for each section, create an `_index.md` file in either the content root
 or one of the archetype folder. It will be included in the "list" view for that archetype.
 
-- To customize the color scheme you can create a `static/css/custom.css` file and set some 
-CSS variables in it. This will override the default css with the 
-styles you define. It is also possible to override the theme colors using css variables.
-
-```css
-:root {
-    --foreground: orange;
-    --foreground-08: rgba(255,165,0, 0.8);
-    --foreground-03: rgba(255,165,0, 0.3);
-    --foreground-01: rgba(255,165,0, 0.1);
-    --foreground-005: rgba(255,165,0, 0.05);
-
-    --background: black;
-}
-```
+- To customize the css you can create a `assets/scss/custom.scss` file and set some 
+SCSS variables in it. This will override the default css with the styles you define.
       
 - Adding contact info is easy! Have a look at the config above for some examples, and make 
 sure the files are added under the `fontawesome_sets` property in the params. The available

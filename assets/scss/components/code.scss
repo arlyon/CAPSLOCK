@@ -121,10 +121,10 @@ div.highlight {
         td, span {
           font-family: $font-family-mono !important;
           font-weight: $font-weight-regular;
-          color: var(--foreground, $foreground) !important;
+          color: $foreground !important;
           &.pl-k {
             font-weight: $font-weight-bold;
-            color: var(--foreground, $foreground);
+            color: $foreground;
           }
         }
       }
@@ -132,10 +132,10 @@ div.highlight {
     > .gist-meta {
       font-size: 1em;
       background-color: transparent;
-      color: var(--foreground, $foreground);
+      color: $foreground;
       font-family: $font-family-mono;
       a {
-        color: var(--foreground, $foreground);
+        color: $foreground;
       }
     }
   }

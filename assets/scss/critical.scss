@@ -1,12 +1,12 @@
 @import 'variables.scss';
 
 .active {
-  color: var(--background, $background);
-  background-color: var(--foreground, $foreground);
+  color: $background;
+  background-color: $foreground;
 }
 
 a {
-  color: var(--foreground, $foreground);
+  color: $foreground;
 }
 
 html {
@@ -18,15 +18,15 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: var(--background, $background);
-  color: var(--foreground, $foreground);
+  background-color: $background;
+  color: $foreground;
   font-weight: $font-weight-regular;
   font-family: $font-family;
 
   > header, nav {
     a {
       text-decoration: none;
-      color: var(--foreground, $foreground);
+      color: $foreground;
     }
   }
 }

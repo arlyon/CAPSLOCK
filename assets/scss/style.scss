@@ -90,12 +90,12 @@ body {
     // cv overview styles
     &.cv-overview {
       > #information, #skills {
-        background-color: var(--foreground, $foreground);
-        color: var(--background, $background);
+        background-color: $foreground;
+        color: $background;
         font-family: $font-family-mono;
 
         a {
-          color: var(--background, $background);
+          color: $background;
         }
       }
 
