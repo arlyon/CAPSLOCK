@@ -1,16 +1,8 @@
-@Supports (grid-area: auto) {
-  @media screen and (min-width: 600px) and (max-width: 999px) {
-    main.cover.cv-overview {
-      grid-template-rows: auto auto auto auto auto;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "information skills"
-        "letter      letter"
-        "education   projects"
-        "internships responsibilities";
-    }
-  }
+/*
+ *  Special layouts for cover letters.
+ */
 
+@Supports (grid-area: auto) {
   @media screen and (min-width: 1000px) and (max-width: 1599px) {
     main.cover.cv-overview {
       grid-template-columns: 1fr repeat(2, minmax(300px, 400px)) 1fr;
@@ -20,7 +12,7 @@
         ". information      information ."
         ". letter           letter      ."
         ". education        projects    ."
-        ". responsibilities internships ."
+        ". responsibilities employment  ."
         ". skills           skills      ."
         ". .                .           .";
     }
@@ -34,7 +26,7 @@
         ". .           . .                .           . .      ."
         ". information . education        projects    . letter ."
         ". skills      . education        projects    . letter ."
-        ". skills      . responsibilities internships . letter ."
+        ". skills      . responsibilities employment  . letter ."
         ". .           . .                .           . .      .";
       > #skills {
         display: block;

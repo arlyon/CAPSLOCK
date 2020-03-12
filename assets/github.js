@@ -14,7 +14,7 @@ async function populateGithubActivity(userName, list) {
         const node = document.createElement('li');
         node.style.opacity = "0";
         const plural = repo_data[repo_name][0] === 1 ? "event" : "events";
-        node.innerHTML = `${repo_data[repo_name][0]} ${plural} in <a href="https://github.com/${repo_name}">${repo_name}</a> <time datetime="${repo_data[repo_name][1]}">${timeago.format(repo_data[repo_name][1])}</time>`;
+        node.innerHTML = `<a href="https://github.com/${repo_name}">${repo_name}</a> (${repo_data[repo_name][0]} ${plural}) <time datetime="${repo_data[repo_name][1]}">${timeago.format(repo_data[repo_name][1])}</time>`;
         list.appendChild(node);
         await sleep(100);
         node.style.opacity = "1";
