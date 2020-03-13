@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main role="main" class="skills">
     <section id="experience">
-        <header><h2>experience with <span>{{ .Title }}</span></h2></header>
+        <header><h2>experience with {{ .Title }}</h2><a style="margin-left: auto" href="/"><h2>back</h2></a></header>
         {{ range .Paginator.Pages }}
         {{ if ne .Section "coverletters" }}
         {{ partial ( print "cv/" (lower .Section) ) . }}
