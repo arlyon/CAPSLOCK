@@ -3,11 +3,11 @@ async function populateGithubActivity(userName, list) {
 
     const repos = {};
     const repo_data = {}; // repo -> [count, date]
-    for (event of await response.json()) {
-        const next_date = new Date(event.created_at);
-        const [count, date] = repo_data[event.repo.name] || [1, next_date];
-        repo_data[event.repo.name] = [count+1, date > next_date ? date : next_date];
-        repos[event.repo.name] = event.repo;
+    for (ghEvent of await response.json()) {
+        const next_date = new Date(ghEvent.created_at);
+        const [count, date] = repo_data[ghEvent.repo.name] || [1, next_date];
+        repo_data[ghEvent.repo.name] = [count+1, date > next_date ? date : next_date];
+        repos[ghEvent.repo.name] = ghEvent.repo;
     }
 
     for (repo_name in repo_data) {
@@ -23,10 +23,6 @@ async function populateGithubActivity(userName, list) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function formatEventName(name) {
-    return name.replace(/Event$/g, '').split(/(?=[A-Z])/).join(" ")
 }
 
 {{ with .Site.Params.cv.data.github }}
