@@ -3,14 +3,19 @@
 $card-content-size: 0.8;
 
 article.card {
-  border-left: 3px solid var(--foreground, $foreground);
-  margin: 1em 0;
-  padding-left: 1em;
+  margin-bottom: 3em;
   font-size: 1em * $card-content-size;
 
   > header {
     > h3 {
       margin-top: -0.2em;
+      font-weight: inherit;
+      > a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
     margin-bottom: 0.5em;
     font-size: 1em / $card-content-size;
