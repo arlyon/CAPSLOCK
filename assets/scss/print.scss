@@ -2,7 +2,7 @@
 @import "variables";
 
 @media print {
-  body {
+  html {
     font-size: $font-size * 0.8 !important;
   }
   * {
