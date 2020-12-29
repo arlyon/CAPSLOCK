@@ -31,6 +31,11 @@
     {{ with .Site.Params.fontawesome_kit }}
         <script src="https://kit.fontawesome.com/{{ . }}.js" crossorigin="anonymous"></script>
     {{ end }}
+
+
+    {{ with .Site.Params.plausible_domain }}
+        <script async defer data-domain="{{ . }}" src="https://plausible.io/js/plausible.js"></script>
+    {{ end }}
 </head>
 <body>
     {{ if not (eq .Site.Params.cv.enabled true) }}{{ partial "frame/header.html" . }}{{ end }}
