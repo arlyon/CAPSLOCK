@@ -20,13 +20,10 @@
       grid-template-columns: 1fr 300px minmax(0px,50px) minmax(300px,400px) minmax(300px,400px) 1fr;
       grid-template-areas:
         ". .           . .                .           ."
-        ". information . education        projects    ."
-        ". skills      . education        projects    ."
-        ". skills      . responsibilities employment  ."
+        ". information . employment       projects    ."
+        ". skills      . employment       projects    ."
+        ". skills      . education responsibilities   ."
         ". .           . .                .           .";
-      > #skills {
-        display: block !important;
-      }
     }
   }
 }

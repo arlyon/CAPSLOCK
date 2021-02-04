@@ -3,13 +3,13 @@
 $card-content-size: 0.8;
 
 article.card {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   font-size: 1em * $card-content-size;
 
   > header {
     > h3 {
       margin-top: -0.2em;
-      font-weight: inherit;
+      font-weight: 600;
       > a {
         text-decoration: none;
         &:hover {
@@ -17,14 +17,17 @@ article.card {
         }
       }
     }
-    margin-bottom: 0.5em;
     font-size: 1em / $card-content-size;
     font-weight: $font-weight-bold;
   }
 
   > .card-content {
+    margin-top: 0.3em;
     > p, ul {
       margin-top: 0;
+      line-height: 1.2rem;
+    }
+    li {
       line-height: 1.2rem;
     }
     > *:last-child {
@@ -35,6 +38,7 @@ article.card {
   .date {
     font-size: 0.8em;
     opacity: 0.4;
+    margin-left: auto;
   }
 
   ul {
@@ -63,6 +67,8 @@ article.card {
 
 article.cv-item {
   .institution {
+    font-family: $font-family-mono;
+    margin: 0;
   }
   > header {
     display: block;

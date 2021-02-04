@@ -1,14 +1,14 @@
 <section id="information">
     <div class="personal">
-        {{ with .Site.Params.Author }}<div>{{ . }}</div>{{ end }}
-        {{ with .Site.Params.cv.data.currently}}<div>{{ markdownify . }}</div>{{ end }}
+        {{ with .Site.Params.Author }}<div class="author">{{ . }}</div>{{ end }}
+        {{ with .Site.Params.cv.data.currently}}<div class="currently">{{ markdownify . }}</div>{{ end }}
     </div>
     <ul class="links">
         {{ with .Site.Params.cv.data.github }}<li><a href="https://github.com/{{ . }}">github</a></li>{{ end }}
         {{ with .Site.Params.cv.data.site }}<li><a href="{{ . }}">blog</a></li>{{ end }}
         {{ if .IsPage }}
-            {{ with .Site.Params.cv.data.email }}<li><a href="mailto:{{ . }}">{{ . }}</a></li>{{ end }}
-            {{ with .Site.Params.cv.data.phone }}<li><a href="tel:{{ . }}">{{ . }}</a></li>{{ end }}
+        {{ with .Site.Params.cv.data.email }}<li><a href="mailto:{{ . }}">{{ . }}</a></li>{{ end }}
+        {{ with .Site.Params.cv.data.phone }}<li><a href="tel:{{ . }}">{{ . }}</a></li>{{ end }}
         {{ end }}
     </ul>
     {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
@@ -23,24 +23,29 @@
 {{ end }}
 
 {{ range $seq := where .Site.Sections "Title" "in" (apply .Site.Params.cv.sections "title" ".") }}
-    <section id="{{ lower .Title }}">
-        <header><h2>{{ .Title }}</h2></header>
-        {{ range where .Pages "Params.pin" true }}
-            {{ partial ( print "cv/" (lower $seq.Title) ) . }}
-        {{ end }}
-    </section>
+<section id="{{ lower .Title }}">
+    <header>
+        <h2>{{ .Title }}</h2>
+    </header>
+    {{ range where .Pages "Params.pin" true }}
+    {{ partial ( print "cv/" (lower $seq.Title) ) . }}
+    {{ end }}
+</section>
 {{ end }}
 
 <section id="skills">
-    <p>Top Skills <a href="/skills/">(view all)</a></p>
-    <ul class="skill-list">
-        {{ $site := .Site }}
-        {{ range $name, $taxonomy := .Site.Taxonomies.skills.ByCount }}
-        {{ if ge $taxonomy.Count $site.Params.cv.min_for_tag }}
-        <li><a class="tag" href="{{ $.Site.LanguagePrefix }}/skills/{{ $taxonomy.Name | urlize }}">{{$taxonomy.Name}}</a></li>
-        {{ end }}
-        {{ end }}
-    </ul>
+    <div>
+        <p>Top Skills <a href="/skills/">(view all)</a></p>
+        <ul class="skill-list">
+            {{ $site := .Site }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.skills.ByCount }}
+            {{ if ge $taxonomy.Count $site.Params.cv.min_for_tag }}
+            <li><a class="tag"
+                    href="{{ $.Site.LanguagePrefix }}/skills/{{ $taxonomy.Name | urlize }}">{{$taxonomy.Name}}</a></li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </div>
     <div class="github-activity">
         <p>Github Activity</p>
         <ol id="latest-activity">
@@ -48,5 +53,8 @@
         <script src="/timeago.min.js" type="text/javascript"></script>
         {{ $githubScript := resources.Get "github.js" | resources.ExecuteAsTemplate "github.js" . | resources.Minify }}
         <script src="{{ $githubScript.Permalink }}" type="text/javascript"></script>
+    </div>
+    <div class="tip" style="font-size: 0.8em;">tip: there are more projects than those listed here! click on a skill to
+        have a dig
     </div>
 </section>

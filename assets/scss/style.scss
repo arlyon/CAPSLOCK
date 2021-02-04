@@ -78,7 +78,12 @@ body {
 
       > header {
         font-size: 1.5em;
+        margin-bottom: 0.5em;
         font-weight: $font-weight-bold;
+      }
+
+      article.card:last-child {
+        margin-bottom: 0;
       }
     }
 
@@ -127,7 +132,7 @@ body {
               display: none;
           }
 
-          .github-activity {
+          .github-activity, .tip {
             display: none;
           }
         }
@@ -138,6 +143,8 @@ body {
         justify-content: center;
 
         .github-activity {
+          flex: 1;
+          width: 100%;
           > ol {
             padding-left: 0;
             margin: 0.5em 0;
@@ -232,11 +239,6 @@ p {
   code {
     font-weight: $font-weight-bold;
   }
-}
-
-.institution {
-  font-family: $font-family-mono;
-  margin: 0.2em 0;
 }
 
 blockquote {

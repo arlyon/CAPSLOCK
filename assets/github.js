@@ -1,5 +1,5 @@
 async function populateGithubActivity(userName, list) {
-    const response = await fetch(`https://api.github.com/users/${userName}/events`);
+    const response = await fetch(`https://api.github.com/users/${userName}/events?per_page=100`);
 
     const repos = {};
     const repo_data = {}; // repo -> [count, date]

@@ -7,15 +7,9 @@
       grid-template-areas:
         "information information"
         "letter      letter"
-        "education   projects"
-        "employment  responsibilities"
+        "employment   projects"
+        "education  responsibilities"
         "skills      skills";
-    }
-  }
-
-  #information {
-    a {
-      white-space: nowrap;
     }
   }
 }

@@ -12,18 +12,25 @@
   a {
     &:not(.tag) {
       &:link:after, &:visited:after {
-        content: ": [" attr(href) "]";
+        content: ": " attr(href);
       }
     }
     text-decoration: none;
   }
   #information {
-    .personal {
-      font-weight: $font-weight-bold;
+    a {
+      white-space: nowrap;
+    }
+    margin: -2em 0;
+    .author {
+      font-weight: 600;
       font-size: 1.5em;
     }
-    > ul {
-      margin-top: 2em !important;
+    .currently, ul{
+      font-size: 0.8em;
+    }
+    p {
+      margin-top: 0.5em;
     }
   }
   #letter {
