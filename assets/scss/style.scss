@@ -153,11 +153,14 @@ body {
 
             li {
               transition: opacity 1s ease;
+              time {
+                opacity: 0.6;
+              }
+              a, span, time {
+                white-space: nowrap;
+              }
             }
 
-            time {
-              opacity: 0.6;
-            }
           }
         }
       }
