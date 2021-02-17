@@ -10,11 +10,11 @@ async function populateGithubActivity(userName, list) {
         repos[ghEvent.repo.name] = ghEvent.repo;
     }
 
-    for (repo_name in repo_data) {
+    for (repo_name of Object.keys(repo_data).slice(0, 8)) {
         const node = document.createElement('li');
         node.style.opacity = "0";
         const plural = repo_data[repo_name][0] === 1 ? "event" : "events";
-        node.innerHTML = `<a href="https://github.com/${repo_name}">${repo_name}</a> (${repo_data[repo_name][0]} ${plural}) <time datetime="${repo_data[repo_name][1]}">${timeago.format(repo_data[repo_name][1])}</time>`;
+        node.innerHTML = `<a href="https://github.com/${repo_name}">${repo_name}</a> <span>(${repo_data[repo_name][0]} ${plural})</span> <time datetime="${repo_data[repo_name][1]}">${timeago.format(repo_data[repo_name][1])}</time>`;
         list.appendChild(node);
         await sleep(100);
         node.style.opacity = "1";
