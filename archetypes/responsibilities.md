@@ -6,7 +6,7 @@ draft: true
 pin: true
 start:
 end: now
-skills: []
+competencies: []
 ---
 
 goal

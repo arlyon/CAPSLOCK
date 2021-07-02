@@ -35,13 +35,13 @@
 
 <section id="skills">
     <div>
-        <p>Top Skills <a href="/skills/">(view all)</a></p>
+        <p>Competencies <a href="/competencies/">(view all)</a></p>
         <ul class="skill-list">
             {{ $site := .Site }}
-            {{ range $name, $taxonomy := .Site.Taxonomies.skills.ByCount }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.competencies.ByCount }}
             {{ if ge $taxonomy.Count $site.Params.cv.min_for_tag }}
             <li><a class="tag"
-                    href="{{ $.Site.LanguagePrefix }}/skills/{{ $taxonomy.Name | urlize }}">{{$taxonomy.Name}}</a></li>
+                    href="{{ $.Site.LanguagePrefix }}/competencies/{{ $taxonomy.Name | urlize }}">{{$taxonomy.Name}}</a></li>
             {{ end }}
             {{ end }}
         </ul>
