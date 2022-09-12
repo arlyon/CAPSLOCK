@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 
     {{ if not .IsPage }}
-        {{ with .Paginator }}{{ with .Next }}<link rel="next" href="{{ .URL }}"/>{{ end }}{{ end }}
-        {{ with .Paginator }}{{ with .Prev }}<link rel="prev" href="{{ .URL }}"/>{{ end }}{{ end }}
+        {{ with .Paginator }}{{ with .Next }}<link rel="next" href="{{ . }}"/>{{ end }}{{ end }}
+        {{ with .Paginator }}{{ with .Prev }}<link rel="prev" href="{{ . }}"/>{{ end }}{{ end }}
     {{ else }}
-        {{ with .Next }}<link rel="next" href="{{ .URL }}" />{{ end }}
-        {{ with .Prev }}<link rel="prev" href="{{ .URL }}" />{{ end }}
+        {{ with .Next }}<link rel="next" href="{{ . }}" />{{ end }}
+        {{ with .Prev }}<link rel="prev" href="{{ . }}" />{{ end }}
     {{ end }}
 
     {{ with .Site.Params.fontawesome_kit }}
